@@ -2,7 +2,7 @@
 
 **Private AI for documents — with evidence, control, and data sovereignty.**
 
-We are building **Divinity**, a private document-intelligence workspace for households and small confidential teams.
+We are building **Sovinity**, a private document-intelligence workspace for households and small confidential teams.
 
 - Ask questions across documents and inspect the exact sources
 - OCR and semantic search for scanned and digital records
