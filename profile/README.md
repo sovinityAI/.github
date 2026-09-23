@@ -14,7 +14,7 @@ The working MVP is entering product validation for the German market. Reliabilit
 
 ## Repositories
 
-- [Website](https://github.com/sovinityAI/sovinityAI.github.io) — German-first bilingual product website
+- [Website](https://github.com/sovinityAI/website) — German-first bilingual product website
 - Additional public repositories will follow after licensing, security, and secret-history review
 
 ## Principles
