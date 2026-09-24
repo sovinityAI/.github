@@ -1,0 +1,54 @@
+Failed to create stream fd: Operation not permitted
+Failed to create stream fd: Operation not permitted
+Failed to create stream fd: Operation not permitted
+name: Bug report
+description: Report a reproducible Sovinity defect
+title: "[P1] "
+labels:
+  - bug
+body:
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed behavior
+      description: What happened, including the exact error when available?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should have happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+      placeholder: |
+        1. Start from ...
+        2. Perform ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact and affected users
+      description: Explain severity without including private user data.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      placeholder: |
+        - [ ] The defect is covered by a regression test
+        - [ ] The relevant test suite passes
+    validations:
+      required: true
+  - type: textarea
+    id: safe_evidence
+    attributes:
+      label: Safe diagnostic evidence
+      description: Add sanitized logs or screenshots only. Never include credentials, personal documents, or production data.
