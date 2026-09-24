@@ -28,5 +28,6 @@ Evidence:
 ## Project handoff
 
 - [ ] The linked Issue and Project status reflect the current state
-- [ ] `Next actor` identifies who must act after this pull request
+- [ ] The implementation assignment is cleared when the work enters the review queue
+- [ ] `Work type` describes suitability without assigning the review to anyone
 - [ ] If work is paused, the Issue records the exact missing input or dependency

@@ -42,9 +42,23 @@ body:
     validations:
       required: true
   - type: dropdown
+    id: work_type
+    attributes:
+      label: Work type
+      description: This classifies suitable execution; it does not assign the issue.
+      options:
+        - "Any contributor"
+        - "AI-suitable"
+        - "Human judgment"
+        - "Pairing"
+        - "External"
+    validations:
+      required: true
+  - type: dropdown
     id: ready_to_start
     attributes:
       label: Ready for a human or AI contributor to start?
+      description: A Ready issue remains unassigned until a contributor with capacity pulls it.
       options:
         - "No — product decision, dependency, or input is still missing"
         - "Yes — scope, acceptance criteria, and dependencies are sufficient"

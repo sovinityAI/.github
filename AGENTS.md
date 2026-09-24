@@ -14,25 +14,28 @@
 Humans and AI agents follow the same lifecycle in [Sovinity Product](https://github.com/orgs/sovinityAI/projects/1):
 
 - **Backlog**: valid work that is not yet ready or selected.
-- **Ready**: specified, unblocked, and startable without inventing a product decision.
-- **In progress**: a named human or AI agent is actively working on the issue, even when the work may take only minutes.
+- **Ready**: specified, unblocked, prioritized, unassigned, and available for a suitable contributor to pull.
+- **In progress**: a human or AI contributor has pulled and claimed the issue and is actively working on it, even when the work may take only minutes.
 - **Needs input**: work is paused for a named decision, dependency, sensitive input, or external authority.
 - **In review**: output exists and is waiting for human, legal, visual, or technical verification.
 - **Done**: the acceptance criteria are verified and the issue is closed.
 
-Keep the Project's **Next actor** field current: `AI agent`, `Mario`, `Ludwig`, `Both founders`, `External reviewer`, or `None`.
+Keep the Project's **Work type** field current: `Any contributor`, `AI-suitable`, `Human judgment`, `Pairing`, or `External`. It describes the work and never assigns it.
 
-- On start: move the issue to **In progress** and set **Next actor** to the active owner.
-- On pause or handoff: add a concise Issue comment stating what is complete, what is needed next, and who must act; then move to **Needs input** and update **Next actor**.
-- On implementation completion: record verification evidence, move to **In review**, and select the reviewer as **Next actor**.
-- On verified completion: close the issue, move it to **Done**, and set **Next actor** to `None`.
+- Product work is prepared and ordered in **Ready**; it is not pushed to a person or AI agent.
+- On pull: confirm that the Issue is still unassigned and unclaimed, assign yourself or the accountable GitHub user, add a short claim comment when an AI has no separate GitHub identity, and move the issue to **In progress**.
+- Limit work in progress to one implementation issue per contributor or AI session unless a documented exception is necessary.
+- On pause: add a concise Issue comment stating what is complete and the exact missing input or dependency; clear the active assignment and move to **Needs input**.
+- On implementation completion: record verification evidence, clear the implementation assignment, and move to **In review** so an available reviewer can pull it.
+- On verified completion: close the issue and move it to **Done**.
 - Never leave an issue **In progress** when work has stopped or an agent turn ends without an active continuation.
 
 ## Selecting the next task
 
 - When asked what to do next, inspect open issues across `sovinityAI/cloud`, `sovinityAI/SovinityDesktop`, `sovinityAI/website`, and `sovinityAI/.github`.
 - Exclude epics, **Needs input** work, and issues already covered by an open pull request.
-- Prefer `priority:p0`, then `priority:p1`, then `priority:p2`. Within a priority, recommend the smallest ready item that removes uncertainty or unblocks other work.
+- Pull from **Ready**, not from another contributor's assigned work. Prefer `priority:p0`, then `priority:p1`, then `priority:p2`; within a priority, follow dependency order and then the Project's top-to-bottom order.
+- Skip work whose **Work type** is unsuitable for the available contributor. `AI-suitable` means AI may perform it; it does not exclude a human contributor.
 - Recommend exactly one next issue and identify up to three follow-ups separately.
 
 ## Git and pull requests
