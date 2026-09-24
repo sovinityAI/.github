@@ -3,6 +3,7 @@
 ## GitHub task contract
 
 - GitHub Issues are the source of truth for planned work. The organization project is [Sovinity Product](https://github.com/orgs/sovinityAI/projects/1).
+- Sovinity has one product backlog across all repositories. The repository identifies the technical implementation home; it does not create a separate product or backlog.
 - Implementation work requires an open issue in the repository that owns the result. Organization-wide process and template work belongs in `sovinityAI/.github`.
 - Before editing, read the complete issue, comments, labels, dependencies, linked pull requests, and acceptance criteria.
 - Keep the change within the issue scope. Record newly discovered work as a separate linked issue instead of silently expanding scope.
@@ -21,6 +22,12 @@ Humans and AI agents follow the same lifecycle in [Sovinity Product](https://git
 - **Done**: the acceptance criteria are verified and the issue is closed.
 
 Keep the Project's **Work type** field current: `Any contributor`, `AI-suitable`, `Human judgment`, `Pairing`, or `External`. It describes the work and never assigns it.
+
+Keep the Project's **Product milestone** field current for product work. Product milestones describe cross-repository outcomes. Repository milestones remain repository-local and must not be used as the shared product roadmap.
+
+- Create new work from the Project or through the organization's shared issue forms. Both paths must add the Issue to **Sovinity Product**.
+- Do not create blank Issues for normal product work. If an exceptional maintenance Issue is created without a form, add it to the Project immediately.
+- Native Project auto-add workflows are optional safety nets, not the source of truth for intake.
 
 - Product work is prepared and ordered in **Ready**; it is not pushed to a person or AI agent.
 - On pull: confirm that the Issue is still unassigned and unclaimed, assign yourself or the accountable GitHub user, add a short claim comment when an AI has no separate GitHub identity, and move the issue to **In progress**.
