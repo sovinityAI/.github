@@ -1,6 +1,3 @@
-Failed to create stream fd: Operation not permitted
-Failed to create stream fd: Operation not permitted
-Failed to create stream fd: Operation not permitted
 # Contributing to Sovinity
 
 Sovinity uses GitHub Issues as the source of truth and the organization [Sovinity Product project](https://github.com/orgs/sovinityAI/projects/1) as the cross-repository work view.
