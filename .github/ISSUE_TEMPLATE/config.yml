@@ -1,0 +1,8 @@
+Failed to create stream fd: Operation not permitted
+Failed to create stream fd: Operation not permitted
+Failed to create stream fd: Operation not permitted
+blank_issues_enabled: true
+contact_links:
+  - name: Sovinity Product project
+    url: https://github.com/orgs/sovinityAI/projects/1
+    about: View priorities, status, dependencies, and cross-repository work.
