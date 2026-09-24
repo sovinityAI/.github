@@ -1,6 +1,3 @@
-Failed to create stream fd: Operation not permitted
-Failed to create stream fd: Operation not permitted
-Failed to create stream fd: Operation not permitted
 # Sovinity human-and-AI product workflow
 
 GitHub Issues are the authoritative record of planned work for Sovinity. The organization project [Sovinity Product](https://github.com/orgs/sovinityAI/projects/1) provides the cross-repository view; it is not a second backlog.
