@@ -1,4 +1,4 @@
-blank_issues_enabled: true
+blank_issues_enabled: false
 contact_links:
   - name: Sovinity Product project
     url: https://github.com/orgs/sovinityAI/projects/1

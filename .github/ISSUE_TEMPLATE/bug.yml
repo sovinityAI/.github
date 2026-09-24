@@ -3,6 +3,8 @@ description: Report a reproducible Sovinity defect
 title: "[P1] "
 labels:
   - bug
+projects:
+  - sovinityAI/1
 body:
   - type: textarea
     id: observed

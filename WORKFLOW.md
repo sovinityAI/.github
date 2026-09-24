@@ -2,6 +2,8 @@
 
 GitHub Issues are the authoritative record of planned work for Sovinity. The organization project [Sovinity Product](https://github.com/orgs/sovinityAI/projects/1) provides the cross-repository view; it is not a second backlog.
 
+Sovinity is one product with one backlog. Repositories identify where implementation happens; they do not define separate products, roadmaps, or prioritization queues.
+
 This contract is tool-neutral. It applies equally to Mario, Ludwig, Codex, another AI agent, and future contributors. Sovinity uses a pull system: product work is made ready and ordered, while contributors claim work only when they have capacity. A fast AI implementation does not skip lifecycle states: status describes the current truth, not the expected duration.
 
 ## Where an issue belongs
@@ -12,6 +14,27 @@ This contract is tool-neutral. It applies equally to Mario, Ludwig, Codex, anoth
 - `sovinityAI/.github`: organization-wide process, shared templates, and cross-repository governance
 
 Cross-repository initiatives use a parent issue with repository-specific sub-issues. Dependencies must be recorded as GitHub issue relationships rather than only described in prose.
+
+## Product milestones and views
+
+The Project field **Product milestone** groups Issues by product outcome across repositories. It is the shared milestone model; repository milestones remain local metadata and must not replace it.
+
+The Project maintains these working views:
+
+- **Product Board**: all product work grouped by Status, with Repository, Product milestone, Priority, Work type, and Benötigter Input visible where useful
+- **Product Milestones**: product work grouped by Product milestone, independent of implementation repository
+- **Ready Queue**: unassigned work in Ready, ordered by Priority and dependency order
+- **Product Operations**: organization process and governance work from `sovinityAI/.github`
+
+An Issue appears once in the shared Project. Its repository tells contributors where to implement it. A cross-repository outcome has one coordinating parent Issue and linked implementation sub-issues in the repositories that own the resulting changes.
+
+## Issue intake
+
+- Prefer creating an Issue from the Project when the implementation repository is already known.
+- Otherwise use the shared **Product task** or **Bug report** form. The forms add the new Issue to **Sovinity Product** through `projects: ["sovinityAI/1"]`.
+- Blank Issues are disabled for normal intake so that outcome, acceptance criteria, dependencies, verification, and Work type are not skipped.
+- The creator must have permission to add items to the organization Project. If an Issue is created through another route, add it to the Project during triage.
+- Native repository-specific auto-add workflows may remain temporarily as safety nets. They are not required for every repository and do not replace the shared forms or Project-first creation.
 
 ## Ready criteria
 
@@ -33,6 +56,8 @@ An issue is ready when it has:
 - **Needs input**: paused for a named decision, dependency, sensitive input, or external authority
 - **In review**: output exists and human, legal, visual, or technical evidence is being reviewed
 - **Done**: acceptance criteria are verified and the issue is closed
+
+Every Issue in **Needs input** must have a short **Benötigter Input** value that states the missing decision, information, dependency, or external result. Clear or update that value when the Issue leaves Needs input.
 
 ## Work type
 
