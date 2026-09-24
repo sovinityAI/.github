@@ -1,0 +1,66 @@
+name: Product task
+description: Plan a concrete, verifiable unit of Sovinity work
+title: "[P1] "
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Outcome
+      description: What must be true when this issue is complete?
+      placeholder: Describe the user, product, or operational outcome.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context and evidence
+      description: Why is this needed, and what evidence or prior decision supports it?
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Use a checkable list. Each item must be independently verifiable.
+      placeholder: |
+        - [ ] Criterion one
+        - [ ] Criterion two
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies and blockers
+      description: Link blocking or blocked issues. Write "None known" when applicable.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Verification
+      description: Which tests, checks, or artifacts will prove completion?
+    validations:
+      required: true
+  - type: dropdown
+    id: work_type
+    attributes:
+      label: Work type
+      description: This classifies suitable execution; it does not assign the issue.
+      options:
+        - "Any contributor"
+        - "AI-suitable"
+        - "Human judgment"
+        - "Pairing"
+        - "External"
+    validations:
+      required: true
+  - type: dropdown
+    id: ready_to_start
+    attributes:
+      label: Ready for a human or AI contributor to start?
+      description: A Ready issue remains unassigned until a contributor with capacity pulls it.
+      options:
+        - "No — product decision, dependency, or input is still missing"
+        - "Yes — scope, acceptance criteria, and dependencies are sufficient"
+    validations:
+      required: true
