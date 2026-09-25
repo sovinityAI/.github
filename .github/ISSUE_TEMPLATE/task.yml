@@ -1,6 +1,5 @@
 name: Product task
 description: Plan a concrete, verifiable unit of Sovinity work
-title: "[P1] "
 projects:
   - sovinityAI/1
 body:

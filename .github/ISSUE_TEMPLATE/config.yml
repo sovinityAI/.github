@@ -2,4 +2,4 @@ blank_issues_enabled: false
 contact_links:
   - name: Sovinity Product project
     url: https://github.com/orgs/sovinityAI/projects/1
-    about: View priorities, status, dependencies, and cross-repository work.
+    about: View manual rank, status, dependencies, and cross-repository work.

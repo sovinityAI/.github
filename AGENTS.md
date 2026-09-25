@@ -15,7 +15,7 @@
 Humans and AI agents follow the same lifecycle in [Sovinity Product](https://github.com/orgs/sovinityAI/projects/1):
 
 - **Backlog**: valid work that is not yet ready or selected.
-- **Ready**: specified, unblocked, prioritized, unassigned, and available for a suitable contributor to pull.
+- **Ready**: specified, unblocked, manually ordered, unassigned, and available for a suitable contributor to pull.
 - **In progress**: a human or AI contributor has pulled and claimed the issue and is actively working on it, even when the work may take only minutes.
 - **Needs input**: work is paused for a named decision, dependency, sensitive input, or external authority.
 - **In review**: output exists and is waiting for human, legal, visual, or technical verification.
@@ -41,7 +41,7 @@ Keep the Project's **Product milestone** field current for product work. Product
 
 - When asked what to do next, inspect open issues across `sovinityAI/cloud`, `sovinityAI/SovinityDesktop`, `sovinityAI/website`, `sovinityAI/product`, and `sovinityAI/.github`.
 - Exclude epics, **Needs input** work, and issues already covered by an open pull request.
-- Pull from **Ready**, not from another contributor's assigned work. Prefer `priority:p0`, then `priority:p1`, then `priority:p2`; within a priority, follow dependency order and then the Project's top-to-bottom order.
+- Pull from **Ready**, not from another contributor's assigned work. Use the Product Board's saved top-to-bottom order: the highest suitable item in the **Ready** column is next.
 - Skip work whose **Work type** is unsuitable for the available contributor. `AI-suitable` means AI may perform it; it does not exclude a human contributor.
 - Recommend exactly one next issue and identify up to three follow-ups separately.
 

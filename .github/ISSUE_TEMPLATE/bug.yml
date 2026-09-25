@@ -1,6 +1,5 @@
 name: Bug report
 description: Report a reproducible Sovinity defect
-title: "[P1] "
 labels:
   - bug
 projects:

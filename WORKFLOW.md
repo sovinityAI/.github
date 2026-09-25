@@ -32,9 +32,8 @@ The Project field **Product milestone** groups Issues by product outcome across 
 
 The Project maintains these working views:
 
-- **Product Board**: all product work grouped by Status, with Repository, Product milestone, Priority, Work type, and Benötigter Input visible where useful
+- **Product Board**: the canonical ranked view of all product work, grouped by Status and manually ordered within every column, with Repository, Product milestone, Work type, and Benötigter Input visible where useful
 - **Product Milestones**: product work grouped by Product milestone, independent of implementation repository
-- **Ready Queue**: unassigned work in Ready, ordered by Priority and dependency order
 - **Product Operations**: organization process and governance work from `sovinityAI/.github`
 
 An Issue appears once in the shared Project. Its repository tells contributors where to implement it. A cross-repository outcome has one coordinating parent Issue and linked implementation sub-issues in the repositories that own the resulting changes.
@@ -53,7 +52,7 @@ An issue is ready when it has:
 
 - a concrete outcome,
 - acceptance criteria that can be checked,
-- the correct repository and priority,
+- the correct repository and intended top-to-bottom position in the Product Board,
 - known dependencies or an explicit statement that none are known,
 - enough context to begin without inventing product decisions,
 - no unresolved blocker that requires external authority or sensitive input,
@@ -62,7 +61,7 @@ An issue is ready when it has:
 ## Project status
 
 - **Backlog**: valid work, not yet ready or selected
-- **Ready**: sufficiently specified, prioritized, unblocked, unassigned, and available to pull
+- **Ready**: sufficiently specified, unblocked, manually ordered, unassigned, and available to pull
 - **In progress**: pulled and actively claimed by a human or AI contributor, even if execution takes only minutes
 - **Needs input**: paused for a named decision, dependency, sensitive input, or external authority
 - **In review**: output exists and human, legal, visual, or technical evidence is being reviewed
@@ -82,31 +81,36 @@ The Project field **Work type** helps contributors decide whether an issue is su
 
 An issue in **Ready** stays unassigned regardless of its Work type. The type does not reserve work for anyone or create an obligation.
 
-## Priority
+## Manual rank
 
-- **P0**: required before the next pilot, release, or externally committed gate
-- **P1**: important product or operational work after current P0 items
-- **P2**: useful improvement without a near-term gate
+The saved top-to-bottom order in each **Product Board** status column is the only prioritization mechanism. There are no priority tiers, title prefixes, priority labels, or separate priority fields.
 
-Priority expresses consequence, not size. Dependencies and readiness determine the executable order within a priority.
+- **Backlog**: the top item is the next candidate to refine and make ready.
+- **Ready**: the top suitable item is the next work to pull.
+- **In progress**: the top item receives attention first when active work competes.
+- **Needs input**: the top item is the first blocker or decision to resolve.
+- **In review**: the top item is the next output to verify.
+- **Done**: manual order may be preserved for consistency but does not determine future work.
+
+Dependencies remain explicit issue relationships. If a dependency prevents execution, the item is not Ready and belongs in **Needs input** rather than lower in the Ready column. Because GitHub stores manual order as view configuration, contributors must save Product Board changes after reordering cards.
 
 ## Pull policy and work-in-progress limit
 
-- Mario and Ludwig curate outcomes, readiness, priority, dependencies, and top-to-bottom order in the shared **Ready** queue.
-- A contributor with capacity pulls the highest-priority suitable issue. Skipping a higher item requires a short Issue comment explaining the dependency, access, or capability reason.
+- Mario and Ludwig curate outcomes, readiness, dependencies, and the saved top-to-bottom order in every **Product Board** status column.
+- A contributor with capacity pulls the top suitable issue from the **Ready** column. Skipping a higher item requires a short Issue comment explaining the access or capability reason; a blocked item must leave Ready.
 - Before claiming, re-read the Issue and confirm that it remains **Ready**, unassigned, and without a newer claim comment.
 - Claim atomically: assign the accountable GitHub user, add an AI claim comment if the AI has no separate GitHub identity, and move the item to **In progress** before editing.
 - Each contributor or AI session normally has at most one implementation issue in **In progress**. An exception must be explained in both affected Issues.
 - Review is also pulled. Moving output to **In review** does not push it to a named reviewer; an available qualified reviewer claims it.
 
-Pull is not an unprioritized free choice. Product responsibility determines what is Ready and in which order; contributor capacity determines when the next suitable item starts.
+Pull is not an arbitrary free choice. Product responsibility determines what is Ready and its Product Board order; contributor capacity determines when the next suitable item starts.
 
 ## Implementation lifecycle
 
 1. Start from an open issue; create one first if implementation work has no issue.
-2. Add the issue to the organization Project and confirm scope, acceptance criteria, priority, dependencies, and **Work type**.
+2. Add the issue to the organization Project and confirm scope, acceptance criteria, dependencies, intended Product Board position, and **Work type**.
 3. Product preparation ends in an unassigned **Ready** issue. Do not nominate a person or AI agent to perform it.
-4. When capacity is available, pull the highest-priority suitable issue: confirm it is unclaimed, assign the accountable GitHub user, add an AI claim comment where needed, and move it to **In progress**.
+4. When capacity is available, pull the top suitable issue from the **Ready** column: confirm it is unclaimed, assign the accountable GitHub user, add an AI claim comment where needed, and move it to **In progress**.
 5. Work on a branch named `<actor>/<issue-number>-<short-slug>`.
 6. Keep durable state in GitHub. Chat, local notes, and agent memory may support the work but never replace Issue comments or pull-request evidence.
 7. If work pauses, comment with what is complete and the exact missing input or dependency; clear the active assignment and move to **Needs input**. Naming somebody who can provide input is a dependency signal, not an assigned obligation.
@@ -133,4 +137,4 @@ The Issue or linked pull request must make it possible for a different human or 
 
 Use this request:
 
-> Read the open GitHub Issues and the Sovinity Product project across all Sovinity repositories. Reconcile stale status, assignments, and Work type values before selecting work. Pull the highest-priority suitable, unassigned issue from Ready; within a priority, respect dependencies and the Project's top-to-bottom order. Confirm it is still unclaimed, claim it, move it to In progress, and keep the Issue and Project synchronized. If only recommending rather than starting, recommend exactly one issue and list up to three follow-ups without assigning them.
+> Read the open GitHub Issues and the Sovinity Product project across all Sovinity repositories. Reconcile stale status, assignments, and Work type values before selecting work. Pull the top suitable, unassigned issue from the Product Board's Ready column. Confirm it is still unclaimed, claim it, move it to In progress, and keep the Issue and Project synchronized. If only recommending rather than starting, recommend exactly one issue and list up to three follow-ups without assigning them.
