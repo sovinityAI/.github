@@ -11,9 +11,20 @@ This contract is tool-neutral. It applies equally to Mario, Ludwig, Codex, anoth
 - `sovinityAI/cloud`: hosted/private-workspace application, services, AI, storage, connectors, operations, and recovery
 - `sovinityAI/SovinityDesktop`: desktop application, local runtime, packaging, and stores
 - `sovinityAI/website`: public website, domains, legal pages, and launch work
+- `sovinityAI/product`: cross-product vision, strategy, roadmap, decisions, and discovery
 - `sovinityAI/.github`: organization-wide process, shared templates, and cross-repository governance
 
 Cross-repository initiatives use a parent issue with repository-specific sub-issues. Dependencies must be recorded as GitHub issue relationships rather than only described in prose.
+
+## Portable human-and-AI interface
+
+Sovinity uses existing open formats instead of a vendor-specific agent or memory protocol:
+
+- [`AGENTS.md`](https://agents.md/) contains repository-level working instructions for humans and compatible AI coding agents.
+- If a tool cannot load `AGENTS.md` directly, its smallest possible adapter may import or point to that file. Shared rules must not be copied into a competing tool-specific source of truth.
+- [Agent Skills](https://agentskills.io/) (`SKILL.md`) may package reusable procedures, scripts, references, and templates. They must not contain the current product strategy, roadmap, decisions, credentials, or personal data.
+- The [Model Context Protocol](https://modelcontextprotocol.io/) (MCP) may connect an agent to external tools and data. It is an integration interface, not a replacement for durable project records.
+- GitHub Issues, pull requests, and version-controlled repository documents hold durable task and product state. Chat history, local notes, profiles, memory, and sessions from any tool may help an individual contributor but are non-canonical and disposable.
 
 ## Product milestones and views
 

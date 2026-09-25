@@ -39,7 +39,7 @@ Keep the Project's **Product milestone** field current for product work. Product
 
 ## Selecting the next task
 
-- When asked what to do next, inspect open issues across `sovinityAI/cloud`, `sovinityAI/SovinityDesktop`, `sovinityAI/website`, and `sovinityAI/.github`.
+- When asked what to do next, inspect open issues across `sovinityAI/cloud`, `sovinityAI/SovinityDesktop`, `sovinityAI/website`, `sovinityAI/product`, and `sovinityAI/.github`.
 - Exclude epics, **Needs input** work, and issues already covered by an open pull request.
 - Pull from **Ready**, not from another contributor's assigned work. Prefer `priority:p0`, then `priority:p1`, then `priority:p2`; within a priority, follow dependency order and then the Project's top-to-bottom order.
 - Skip work whose **Work type** is unsuitable for the available contributor. `AI-suitable` means AI may perform it; it does not exclude a human contributor.
@@ -51,6 +51,13 @@ Keep the Project's **Product milestone** field current for product work. Product
 - Reference the issue in commits and pull requests. Use `Closes #<number>` for same-repository issues or `Closes owner/repository#<number>` for cross-repository issues.
 - Pull requests must summarize the change, list verification performed, and disclose remaining risks or unfinished acceptance criteria.
 - Do not merge or close an issue merely because files were changed; verification decides completion.
+
+## Tool-neutral agent guidance
+
+- Use the repository's `AGENTS.md` as the shared, tool-neutral instruction file. A tool-specific adapter may import or point to it when necessary, but must not maintain a divergent copy of the shared rules.
+- Keep durable task and product state in GitHub and version-controlled repository documents. Chat history, local notes, profiles, memory, and sessions from any AI tool are temporary aids, never shared infrastructure or a source of truth.
+- Use Agent Skills (`SKILL.md`) only for reusable procedures, scripts, references, and templates. Do not place the current product strategy, roadmap, decisions, credentials, or personal data in a skill.
+- Use the Model Context Protocol (MCP) only when a standard interface to external tools or data is needed. MCP connections do not replace Issues, pull requests, or repository documents as the durable record.
 
 ## Organization repository scope
 
