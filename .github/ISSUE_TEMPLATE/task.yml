@@ -4,18 +4,26 @@ projects:
   - sovinityAI/1
 body:
   - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation und Mehrwert
+      description: Welches heutige Problem oder welche Chance adressiert das Issue, wer oder was profitiert und was verbessert sich nach dem Abschluss für Nutzende, Produkt, Betrieb oder Zusammenarbeit?
+      placeholder: Beschreibe die gewünschte Wirkung. Belastbare qualitative Aussagen genügen; erfinde keine Kennzahlen.
+    validations:
+      required: true
+  - type: textarea
     id: outcome
     attributes:
-      label: Ergebnis
-      description: Was muss wahr sein, wenn dieses Issue abgeschlossen ist?
-      placeholder: Beschreibe das Ergebnis für Nutzende, Produkt oder Betrieb.
+      label: Zielzustand
+      description: Welcher konkrete Zustand muss erreicht sein, damit dieses Issue abgeschlossen werden kann?
+      placeholder: Beschreibe, was nach dem Abschluss wahr ist, ohne bereits die einzelnen Akzeptanzkriterien aufzuzählen.
     validations:
       required: true
   - type: textarea
     id: context
     attributes:
       label: Kontext und Nachweise
-      description: Warum ist dies nötig und welche Nachweise oder früheren Entscheidungen stützen es?
+      description: Welche Ausgangslage, früheren Entscheidungen oder belastbaren Nachweise sind für die Umsetzung relevant?
     validations:
       required: true
   - type: textarea
@@ -62,6 +70,6 @@ body:
       description: Ein Issue in Bereit bleibt unzugewiesen, bis Mitwirkende mit freier Kapazität es übernehmen.
       options:
         - "Nein — Produktentscheidung, Abhängigkeit oder Input fehlt noch"
-        - "Ja — Scope, Akzeptanzkriterien und Abhängigkeiten sind ausreichend"
+        - "Ja — Mehrwert, Scope, Akzeptanzkriterien und Abhängigkeiten sind ausreichend"
     validations:
       required: true

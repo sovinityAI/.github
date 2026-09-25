@@ -47,15 +47,20 @@ Ein Issue erscheint einmal im gemeinsamen Project. Sein Repository zeigt, wo es 
 
 - Erstelle ein Issue vorzugsweise aus dem Project, wenn das Umsetzungs-Repository bereits bekannt ist.
 - Verwende andernfalls das gemeinsame Formular **Produktaufgabe** oder **Fehlerbericht**. Die Formulare fügen das neue Issue über `projects: ["sovinityAI/1"]` zu **Sovinity Product** hinzu.
-- Leere Issues sind für die normale Aufnahme deaktiviert, damit Ergebnis, Akzeptanzkriterien, Abhängigkeiten, Verifikation und Arbeitsart nicht fehlen.
+- Leere Issues sind für die normale Aufnahme deaktiviert, damit Motivation und Mehrwert, Zielzustand, Akzeptanzkriterien, Abhängigkeiten, Verifikation und Arbeitsart nicht fehlen.
 - Erstellende Personen benötigen die Berechtigung, Einträge zum Organisations-Project hinzuzufügen. Wird ein Issue auf anderem Weg erstellt, füge es bei der Triage zum Project hinzu.
 - Native repositoryspezifische Auto-add-Workflows dürfen vorübergehend als Sicherheitsnetz bestehen bleiben. Sie sind weder für jedes Repository erforderlich noch ersetzen sie gemeinsame Formulare oder die Erstellung aus dem Project.
+
+**Motivation und Mehrwert** erklären die gewünschte Wirkung: welches heutige Problem oder welche Chance das Issue adressiert, wer oder was profitiert und was sich nach dem Abschluss für Nutzende, Produkt, Betrieb oder Zusammenarbeit verbessert. Der **Zielzustand** beschreibt davon getrennt, was konkret erreicht sein muss. Belastbare qualitative Aussagen genügen; Kennzahlen werden nur verwendet, wenn sie tatsächlich belegt oder als Ziel entschieden sind.
+
+Ein eigenständiges Issue beschreibt seinen eigenen Mehrwert. Ein repositoryspezifisches Unter-Issue darf den Mehrwert aus seinem Eltern-Issue übernehmen, wenn es darauf verweist und seinen eigenen Beitrag zum übergeordneten Nutzen benennt. Reine Checkbox-Unteraufgaben innerhalb eines Issues benötigen keinen eigenen Abschnitt. Bestehende Issues werden nicht massenhaft umgeschrieben; Motivation und Mehrwert werden ergänzt, sobald ein Issue fachlich überarbeitet oder nach **Bereit** verschoben wird.
 
 ## Kriterien für Bereit
 
 Ein Issue ist bereit, wenn es Folgendes besitzt:
 
-- ein konkretes Ergebnis,
+- eine nachvollziehbare Motivation und einen verständlichen Mehrwert,
+- einen konkreten Zielzustand,
 - prüfbare Akzeptanzkriterien,
 - das richtige Repository und die vorgesehene Position von oben nach unten im Produkt-Board,
 - bekannte Abhängigkeiten oder die ausdrückliche Angabe, dass keine bekannt sind,
@@ -113,7 +118,7 @@ Pull ist keine beliebige Auswahl. Die Produktverantwortung bestimmt, was bereit 
 ## Umsetzungsablauf
 
 1. Beginne mit einem offenen Issue; erstelle zuerst eines, wenn Umsetzungsarbeit noch keines besitzt.
-2. Füge das Issue zum Organisations-Project hinzu und bestätige Scope, Akzeptanzkriterien, Abhängigkeiten, vorgesehene Position im Produkt-Board und **Arbeitsart**.
+2. Füge das Issue zum Organisations-Project hinzu und bestätige Motivation und Mehrwert, Zielzustand, Scope, Akzeptanzkriterien, Abhängigkeiten, vorgesehene Position im Produkt-Board und **Arbeitsart**.
 3. Die Produktvorbereitung endet mit einem unzugewiesenen Issue in **Bereit**. Benenne keinen Menschen oder KI-Agenten für die Ausführung.
 4. Übernimm bei freier Kapazität das oberste geeignete Issue aus **Bereit**: Prüfe, dass es nicht beansprucht ist, weise das verantwortliche GitHub-Konto zu, ergänze bei Bedarf einen KI-Übernahmekommentar und verschiebe es nach **In Arbeit**.
 5. Arbeite auf einem Branch nach dem Muster `<akteur>/<issue-nummer>-<kurzname>`.
@@ -132,7 +137,8 @@ Neu entdeckter Scope wird zu einem separaten verknüpften Issue. Er darf weder i
 
 Das Issue oder der verknüpfte Pull Request muss es einem anderen Menschen oder KI-Agenten ermöglichen, ohne Rekonstruktion eines privaten Gesprächs weiterzuarbeiten. Halte fest:
 
-- das aktuelle Ergebnis und geprüfte Akzeptanzkriterien,
+- Motivation und Mehrwert sowie den aktuellen Zielzustand,
+- geprüfte Akzeptanzkriterien,
 - getroffene Entscheidungen und deren Verantwortliche,
 - relevante Nachweise und Prüfergebnisse,
 - ungelöste Risiken oder Blocker,
