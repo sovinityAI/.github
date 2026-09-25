@@ -1,5 +1,5 @@
-name: Bug report
-description: Report a reproducible Sovinity defect
+name: Fehlerbericht
+description: Einen reproduzierbaren Fehler in Sovinity melden
 labels:
   - bug
 projects:
@@ -8,45 +8,45 @@ body:
   - type: textarea
     id: observed
     attributes:
-      label: Observed behavior
-      description: What happened, including the exact error when available?
+      label: Beobachtetes Verhalten
+      description: Was ist geschehen? Nenne die genaue Fehlermeldung, falls sie verfügbar ist.
     validations:
       required: true
   - type: textarea
     id: expected
     attributes:
-      label: Expected behavior
-      description: What should have happened instead?
+      label: Erwartetes Verhalten
+      description: Was hätte stattdessen geschehen sollen?
     validations:
       required: true
   - type: textarea
     id: reproduce
     attributes:
-      label: Reproduction steps
+      label: Schritte zur Reproduktion
       placeholder: |
-        1. Start from ...
-        2. Perform ...
-        3. Observe ...
+        1. Beginne bei ...
+        2. Führe ... aus
+        3. Beobachte ...
     validations:
       required: true
   - type: textarea
     id: impact
     attributes:
-      label: Impact and affected users
-      description: Explain severity without including private user data.
+      label: Auswirkung und betroffene Nutzende
+      description: Beschreibe die Schwere, ohne private Nutzerdaten anzugeben.
     validations:
       required: true
   - type: textarea
     id: acceptance
     attributes:
-      label: Acceptance criteria
+      label: Akzeptanzkriterien
       placeholder: |
-        - [ ] The defect is covered by a regression test
-        - [ ] The relevant test suite passes
+        - [ ] Der Fehler ist durch einen Regressionstest abgedeckt
+        - [ ] Die relevante Testsuite ist erfolgreich
     validations:
       required: true
   - type: textarea
     id: safe_evidence
     attributes:
-      label: Safe diagnostic evidence
-      description: Add sanitized logs or screenshots only. Never include credentials, personal documents, or production data.
+      label: Sichere Diagnosenachweise
+      description: Füge nur bereinigte Logs oder Screenshots hinzu. Niemals Zugangsdaten, persönliche Dokumente oder Produktionsdaten angeben.

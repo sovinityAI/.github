@@ -1,67 +1,67 @@
-name: Product task
-description: Plan a concrete, verifiable unit of Sovinity work
+name: Produktaufgabe
+description: Eine konkrete, überprüfbare Einheit Sovinity-Arbeit planen
 projects:
   - sovinityAI/1
 body:
   - type: textarea
     id: outcome
     attributes:
-      label: Outcome
-      description: What must be true when this issue is complete?
-      placeholder: Describe the user, product, or operational outcome.
+      label: Ergebnis
+      description: Was muss wahr sein, wenn dieses Issue abgeschlossen ist?
+      placeholder: Beschreibe das Ergebnis für Nutzende, Produkt oder Betrieb.
     validations:
       required: true
   - type: textarea
     id: context
     attributes:
-      label: Context and evidence
-      description: Why is this needed, and what evidence or prior decision supports it?
+      label: Kontext und Nachweise
+      description: Warum ist dies nötig und welche Nachweise oder früheren Entscheidungen stützen es?
     validations:
       required: true
   - type: textarea
     id: acceptance
     attributes:
-      label: Acceptance criteria
-      description: Use a checkable list. Each item must be independently verifiable.
+      label: Akzeptanzkriterien
+      description: Verwende eine prüfbare Liste. Jeder Eintrag muss unabhängig verifizierbar sein.
       placeholder: |
-        - [ ] Criterion one
-        - [ ] Criterion two
+        - [ ] Kriterium eins
+        - [ ] Kriterium zwei
     validations:
       required: true
   - type: textarea
     id: dependencies
     attributes:
-      label: Dependencies and blockers
-      description: Link blocking or blocked issues. Write "None known" when applicable.
+      label: Abhängigkeiten und Blocker
+      description: Verknüpfe blockierende oder blockierte Issues. Schreibe „Keine bekannt“, falls nichts bekannt ist.
     validations:
       required: true
   - type: textarea
     id: validation
     attributes:
-      label: Verification
-      description: Which tests, checks, or artifacts will prove completion?
+      label: Verifikation
+      description: Welche Tests, Prüfungen oder Artefakte weisen den Abschluss nach?
     validations:
       required: true
   - type: dropdown
     id: work_type
     attributes:
-      label: Work type
-      description: This classifies suitable execution; it does not assign the issue.
+      label: Arbeitsart
+      description: Diese Auswahl beschreibt die geeignete Ausführung; sie weist das Issue niemandem zu.
       options:
-        - "Any contributor"
-        - "AI-suitable"
-        - "Human judgment"
-        - "Pairing"
-        - "External"
+        - "Alle Mitwirkenden"
+        - "KI-geeignet"
+        - "Menschliche Entscheidung"
+        - "Gemeinsame Arbeit"
+        - "Extern"
     validations:
       required: true
   - type: dropdown
     id: ready_to_start
     attributes:
-      label: Ready for a human or AI contributor to start?
-      description: A Ready issue remains unassigned until a contributor with capacity pulls it.
+      label: Bereit zur Übernahme durch einen Menschen oder KI-Agenten?
+      description: Ein Issue in Bereit bleibt unzugewiesen, bis Mitwirkende mit freier Kapazität es übernehmen.
       options:
-        - "No — product decision, dependency, or input is still missing"
-        - "Yes — scope, acceptance criteria, and dependencies are sufficient"
+        - "Nein — Produktentscheidung, Abhängigkeit oder Input fehlt noch"
+        - "Ja — Scope, Akzeptanzkriterien und Abhängigkeiten sind ausreichend"
     validations:
       required: true
