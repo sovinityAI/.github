@@ -1,20 +1,20 @@
-# Contributing to Sovinity
+# Zu Sovinity beitragen
 
-Sovinity uses GitHub Issues as the source of truth and the organization [Sovinity Product project](https://github.com/orgs/sovinityAI/projects/1) as the cross-repository work view.
+Sovinity verwendet GitHub Issues als verbindliche Quelle und das organisationsweite Project [Sovinity Product](https://github.com/orgs/sovinityAI/projects/1) als repositoryübergreifende Arbeitsansicht.
 
-The same lifecycle applies to every contributor, whether the work is performed by Mario, Ludwig, Codex, another AI agent, or a future team member. Before starting or handing off work, read and follow the complete [human-and-AI product workflow](WORKFLOW.md).
+Für alle Mitwirkenden gilt derselbe Lebenszyklus – unabhängig davon, ob Mario, Ludwig, Codex, ein anderer KI-Agent oder eine zukünftige Person die Arbeit übernimmt. Lies vor Beginn oder Übergabe einer Arbeit den vollständigen [Produkt-Workflow für Menschen und KI](WORKFLOW.md) und die [Sprachregel](SPRACHE.md).
 
-In short:
+Kurzfassung:
 
-1. Work from an open Issue with checkable acceptance criteria.
-2. Pull the highest-priority suitable, unassigned Issue from **Ready** only when you have capacity.
-3. Claim it before editing by assigning the accountable GitHub user and moving it to **In progress**.
-4. Keep the Project **Status**, assignment, and **Work type** synchronized with reality.
-5. Record decisions, blockers, handoffs, and verification evidence in GitHub.
-6. Use **Needs input** when work pauses for a decision or dependency, and clear the active assignment.
-7. Put completed implementation into the shared **In review** pull queue.
-8. Close an Issue only after its acceptance criteria are verified.
+1. Arbeite auf Grundlage eines offenen Issues mit prüfbaren Akzeptanzkriterien.
+2. Übernimm das oberste geeignete, unzugewiesene Issue aus **Bereit** nur dann, wenn du Kapazität hast.
+3. Beanspruche es vor der Bearbeitung, indem du das verantwortliche GitHub-Konto zuweist und das Issue nach **In Arbeit** verschiebst.
+4. Halte **Status**, Zuweisung und **Arbeitsart** im Project synchron mit der Realität.
+5. Dokumentiere Entscheidungen, Blocker, Übergaben und Prüfnachweise in GitHub.
+6. Verwende **Benötigt Input**, wenn Arbeit wegen einer Entscheidung oder Abhängigkeit pausiert, und entferne die aktive Zuweisung.
+7. Übergebe abgeschlossene Umsetzung an die gemeinsame Pull-Warteschlange **In Prüfung**.
+8. Schließe ein Issue erst, nachdem seine Akzeptanzkriterien verifiziert wurden.
 
-Normally, each contributor or AI session has at most one implementation Issue in progress. **Work type** describes suitability; it never assigns work to a person or AI.
+Normalerweise hat jede mitwirkende Person oder KI-Sitzung höchstens ein Umsetzungs-Issue gleichzeitig in Arbeit. Die **Arbeitsart** beschreibt die Eignung; sie weist Arbeit weder einem Menschen noch einer KI zu.
 
-Repository-specific development commands and quality gates remain in that repository's local instructions.
+Repositoryspezifische Entwicklungsbefehle und Qualitätsprüfungen bleiben in den lokalen Anweisungen des jeweiligen Repositories.

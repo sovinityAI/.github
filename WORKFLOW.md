@@ -1,140 +1,145 @@
-# Sovinity human-and-AI product workflow
+# Sovinity-Produkt-Workflow für Menschen und KI
 
-GitHub Issues are the authoritative record of planned work for Sovinity. The organization project [Sovinity Product](https://github.com/orgs/sovinityAI/projects/1) provides the cross-repository view; it is not a second backlog.
+GitHub Issues sind der verbindliche Nachweis geplanter Arbeit für Sovinity. Das organisationsweite Project [Sovinity Product](https://github.com/orgs/sovinityAI/projects/1) bietet die repositoryübergreifende Übersicht; es ist kein zweites Backlog.
 
-Sovinity is one product with one backlog. Repositories identify where implementation happens; they do not define separate products, roadmaps, or prioritization queues.
+Sovinity ist ein Produkt mit einem Backlog. Repositories bestimmen, wo die Umsetzung stattfindet; sie begründen weder getrennte Produkte noch eigene Roadmaps oder Priorisierungslisten.
 
-This contract is tool-neutral. It applies equally to Mario, Ludwig, Codex, another AI agent, and future contributors. Sovinity uses a pull system: product work is made ready and ordered, while contributors claim work only when they have capacity. A fast AI implementation does not skip lifecycle states: status describes the current truth, not the expected duration.
+Dieser Vertrag ist werkzeugneutral und gilt gleichermaßen für Mario, Ludwig, Codex, andere KI-Agenten und zukünftige Mitwirkende. Sovinity verwendet ein Pull-System: Produktarbeit wird vorbereitet und eingeordnet, während Mitwirkende sie erst bei freier Kapazität übernehmen. Auch eine schnelle KI-Umsetzung durchläuft alle Zustände; der Status beschreibt die aktuelle Wahrheit und nicht die erwartete Dauer.
 
-## Where an issue belongs
+Für alle internen Texte gilt die [verbindliche Sprachregel](SPRACHE.md).
 
-- `sovinityAI/cloud`: hosted/private-workspace application, services, AI, storage, connectors, operations, and recovery
-- `sovinityAI/SovinityDesktop`: desktop application, local runtime, packaging, and stores
-- `sovinityAI/website`: public website, domains, legal pages, and launch work
-- `sovinityAI/product`: cross-product vision, strategy, roadmap, decisions, and discovery
-- `sovinityAI/.github`: organization-wide process, shared templates, and cross-repository governance
+## Zuständiges Repository
 
-Cross-repository initiatives use a parent issue with repository-specific sub-issues. Dependencies must be recorded as GitHub issue relationships rather than only described in prose.
+- `sovinityAI/cloud`: gehostete Anwendung und private Arbeitsbereiche, Dienste, KI, Speicher, Konnektoren, Betrieb und Wiederherstellung
+- `sovinityAI/SovinityDesktop`: Desktop-Anwendung, lokale Laufzeit, Paketerstellung und Stores
+- `sovinityAI/website`: öffentliche Website, Domains, Rechtstexte und Veröffentlichungsarbeit
+- `sovinityAI/product`: repositoryübergreifende Vision, Strategie, Roadmap, Entscheidungen und Discovery
+- `sovinityAI/.github`: organisationsweite Prozesse, gemeinsame Vorlagen und repositoryübergreifende Governance
 
-## Portable human-and-AI interface
+Repositoryübergreifende Vorhaben verwenden ein Eltern-Issue mit repositoryspezifischen Unter-Issues. Abhängigkeiten werden als GitHub-Issue-Beziehungen erfasst und nicht nur im Fließtext beschrieben.
 
-Sovinity uses existing open formats instead of a vendor-specific agent or memory protocol:
+## Portabler Zugang für Menschen und KI
 
-- [`AGENTS.md`](https://agents.md/) contains repository-level working instructions for humans and compatible AI coding agents.
-- If a tool cannot load `AGENTS.md` directly, its smallest possible adapter may import or point to that file. Shared rules must not be copied into a competing tool-specific source of truth.
-- [Agent Skills](https://agentskills.io/) (`SKILL.md`) may package reusable procedures, scripts, references, and templates. They must not contain the current product strategy, roadmap, decisions, credentials, or personal data.
-- The [Model Context Protocol](https://modelcontextprotocol.io/) (MCP) may connect an agent to external tools and data. It is an integration interface, not a replacement for durable project records.
-- GitHub Issues, pull requests, and version-controlled repository documents hold durable task and product state. Chat history, local notes, profiles, memory, and sessions from any tool may help an individual contributor but are non-canonical and disposable.
+Sovinity verwendet vorhandene offene Formate statt eines herstellerspezifischen Agenten- oder Memory-Protokolls:
 
-## Product milestones and views
+- [`AGENTS.md`](https://agents.md/) enthält Arbeitsanweisungen auf Repository-Ebene für Menschen und kompatible KI-Coding-Agenten.
+- Kann ein Werkzeug `AGENTS.md` nicht direkt laden, darf sein kleinstmöglicher Adapter diese Datei importieren oder darauf verweisen. Gemeinsame Regeln dürfen nicht in eine konkurrierende werkzeugspezifische Quelle kopiert werden.
+- [Agent Skills](https://agentskills.io/) (`SKILL.md`) dürfen wiederverwendbare Abläufe, Skripte, Referenzen und Vorlagen bündeln. Sie dürfen keine aktuelle Produktstrategie, Roadmap, Entscheidungen, Zugangsdaten oder personenbezogenen Daten enthalten.
+- Das [Model Context Protocol](https://modelcontextprotocol.io/) (MCP) darf Agenten mit externen Werkzeugen und Daten verbinden. Es ist eine Integrationsschnittstelle und kein Ersatz für dauerhafte Project-Nachweise.
+- GitHub Issues, Pull Requests und versionierte Repository-Dokumente enthalten dauerhaften Auftrags- und Produktstand. Chatverläufe, lokale Notizen, Profile, Memory und Sitzungen beliebiger Werkzeuge dürfen einzelne Mitwirkende unterstützen, sind aber nicht kanonisch und können verworfen werden.
 
-The Project field **Product milestone** groups Issues by product outcome across repositories. It is the shared milestone model; repository milestones remain local metadata and must not replace it.
+## Produktmeilensteine und Ansichten
 
-The Project maintains these working views:
+Das Project-Feld **Produktmeilenstein** gruppiert Issues repositoryübergreifend nach Produktergebnis. Es ist das gemeinsame Meilensteinmodell; Repository-Meilensteine bleiben lokale Metadaten und dürfen es nicht ersetzen.
 
-- **Product Board**: the canonical ranked view of all product work, grouped by Status and manually ordered within every column, with Repository, Product milestone, Work type, and Benötigter Input visible where useful
-- **Product Milestones**: product work grouped by Product milestone, independent of implementation repository
-- **Product Operations**: organization process and governance work from `sovinityAI/.github`
+Das Project pflegt folgende Arbeitsansichten:
 
-An Issue appears once in the shared Project. Its repository tells contributors where to implement it. A cross-repository outcome has one coordinating parent Issue and linked implementation sub-issues in the repositories that own the resulting changes.
+- **Produkt-Board**: kanonische Rangfolge aller Produktarbeit, gruppiert nach Status und in jeder Spalte manuell sortiert; Repository, Produktmeilenstein, Arbeitsart und Benötigter Input sind dort sichtbar, wo sie helfen
+- **Team-Aufgaben**: tabellarische Übersicht der Zuweisungen und des aktuellen Arbeitsstands
+- **Produkt-Roadmap**: zeitliche Planung über Startdatum und Zieldatum
+- **Meine Aufgaben**: persönliche Ansicht mit dem Filter `assignee:@me`
+- **Produktmeilensteine**: Produktarbeit gruppiert nach Produktmeilenstein, unabhängig vom Umsetzungs-Repository
+- **Produktbetrieb**: Organisationsprozesse und Governance-Arbeit aus `sovinityAI/.github`
 
-## Issue intake
+Ein Issue erscheint einmal im gemeinsamen Project. Sein Repository zeigt, wo es umgesetzt wird. Ein repositoryübergreifendes Ergebnis besitzt ein koordinierendes Eltern-Issue und verknüpfte Umsetzungs-Issues in den Repositories, denen die jeweiligen Änderungen gehören.
 
-- Prefer creating an Issue from the Project when the implementation repository is already known.
-- Otherwise use the shared **Product task** or **Bug report** form. The forms add the new Issue to **Sovinity Product** through `projects: ["sovinityAI/1"]`.
-- Blank Issues are disabled for normal intake so that outcome, acceptance criteria, dependencies, verification, and Work type are not skipped.
-- The creator must have permission to add items to the organization Project. If an Issue is created through another route, add it to the Project during triage.
-- Native repository-specific auto-add workflows may remain temporarily as safety nets. They are not required for every repository and do not replace the shared forms or Project-first creation.
+## Aufnahme neuer Issues
 
-## Ready criteria
+- Erstelle ein Issue vorzugsweise aus dem Project, wenn das Umsetzungs-Repository bereits bekannt ist.
+- Verwende andernfalls das gemeinsame Formular **Produktaufgabe** oder **Fehlerbericht**. Die Formulare fügen das neue Issue über `projects: ["sovinityAI/1"]` zu **Sovinity Product** hinzu.
+- Leere Issues sind für die normale Aufnahme deaktiviert, damit Ergebnis, Akzeptanzkriterien, Abhängigkeiten, Verifikation und Arbeitsart nicht fehlen.
+- Erstellende Personen benötigen die Berechtigung, Einträge zum Organisations-Project hinzuzufügen. Wird ein Issue auf anderem Weg erstellt, füge es bei der Triage zum Project hinzu.
+- Native repositoryspezifische Auto-add-Workflows dürfen vorübergehend als Sicherheitsnetz bestehen bleiben. Sie sind weder für jedes Repository erforderlich noch ersetzen sie gemeinsame Formulare oder die Erstellung aus dem Project.
 
-An issue is ready when it has:
+## Kriterien für Bereit
 
-- a concrete outcome,
-- acceptance criteria that can be checked,
-- the correct repository and intended top-to-bottom position in the Product Board,
-- known dependencies or an explicit statement that none are known,
-- enough context to begin without inventing product decisions,
-- no unresolved blocker that requires external authority or sensitive input,
-- no assignee or existing claim.
+Ein Issue ist bereit, wenn es Folgendes besitzt:
 
-## Project status
+- ein konkretes Ergebnis,
+- prüfbare Akzeptanzkriterien,
+- das richtige Repository und die vorgesehene Position von oben nach unten im Produkt-Board,
+- bekannte Abhängigkeiten oder die ausdrückliche Angabe, dass keine bekannt sind,
+- genügend Kontext, um ohne erfundene Produktentscheidungen zu beginnen,
+- keinen ungelösten Blocker, der externe Zuständigkeit oder sensible Informationen erfordert,
+- keine Zuweisung oder bestehende Übernahme.
 
-- **Backlog**: valid work, not yet ready or selected
-- **Ready**: sufficiently specified, unblocked, manually ordered, unassigned, and available to pull
-- **In progress**: pulled and actively claimed by a human or AI contributor, even if execution takes only minutes
-- **Needs input**: paused for a named decision, dependency, sensitive input, or external authority
-- **In review**: output exists and human, legal, visual, or technical evidence is being reviewed
-- **Done**: acceptance criteria are verified and the issue is closed
+## Project-Status
 
-Every Issue in **Needs input** must have a short **Benötigter Input** value that states the missing decision, information, dependency, or external result. Clear or update that value when the Issue leaves Needs input.
+- **Backlog**: gültige Arbeit, die noch nicht bereit oder ausgewählt ist
+- **Bereit**: ausreichend beschrieben, nicht blockiert, manuell eingeordnet, nicht zugewiesen und zur Übernahme verfügbar
+- **In Arbeit**: von einem Menschen oder KI-Agenten übernommen und aktiv bearbeitet, auch wenn die Umsetzung nur wenige Minuten dauert
+- **Benötigt Input**: pausiert wegen einer benannten Entscheidung, Abhängigkeit, sensiblen Information oder externen Zuständigkeit
+- **In Prüfung**: Ein Ergebnis liegt vor und menschliche, rechtliche, visuelle oder technische Nachweise werden geprüft
+- **Erledigt**: Die Akzeptanzkriterien sind verifiziert und das Issue ist geschlossen
 
-## Work type
+Jedes Issue in **Benötigt Input** muss im Feld **Benötigter Input** kurz die fehlende Entscheidung, Information, Abhängigkeit oder das externe Ergebnis nennen. Lösche oder aktualisiere den Wert, wenn das Issue diesen Status verlässt.
 
-The Project field **Work type** helps contributors decide whether an issue is suitable to pull. It is classification, never assignment:
+## Arbeitsart
 
-- **Any contributor**: no special execution constraint
-- **AI-suitable**: sufficiently bounded work that an AI agent may execute; humans may also pull it
-- **Human judgment**: a product, legal, financial, ethical, or other decision must be made by a human
-- **Pairing**: the work should be performed collaboratively by two humans or by a human with an AI agent
-- **External**: completion depends on a customer, lawyer, tax adviser, security reviewer, or another party outside the active team
+Das Project-Feld **Arbeitsart** hilft Mitwirkenden zu entscheiden, ob ein Issue zur Übernahme geeignet ist. Es ist eine Einordnung und niemals eine Zuweisung:
 
-An issue in **Ready** stays unassigned regardless of its Work type. The type does not reserve work for anyone or create an obligation.
+- **Alle Mitwirkenden**: keine besondere Einschränkung für die Ausführung
+- **KI-geeignet**: ausreichend abgegrenzte Arbeit, die ein KI-Agent ausführen darf; Menschen dürfen sie ebenfalls übernehmen
+- **Menschliche Entscheidung**: Eine Produkt-, Rechts-, Finanz-, Ethik- oder andere Entscheidung muss ein Mensch treffen
+- **Gemeinsame Arbeit**: Die Arbeit sollte von zwei Menschen oder einem Menschen gemeinsam mit einem KI-Agenten ausgeführt werden
+- **Extern**: Der Abschluss hängt von Kundschaft, Rechts- oder Steuerberatung, Sicherheitsprüfung oder einer anderen Partei außerhalb des aktiven Teams ab
 
-## Manual rank
+Ein Issue in **Bereit** bleibt unabhängig von seiner Arbeitsart unzugewiesen. Die Arbeitsart reserviert keine Arbeit und begründet keine Verpflichtung.
 
-The saved top-to-bottom order in each **Product Board** status column is the only prioritization mechanism. There are no priority tiers, title prefixes, priority labels, or separate priority fields.
+## Manuelle Rangfolge
 
-- **Backlog**: the top item is the next candidate to refine and make ready.
-- **Ready**: the top suitable item is the next work to pull.
-- **In progress**: the top item receives attention first when active work competes.
-- **Needs input**: the top item is the first blocker or decision to resolve.
-- **In review**: the top item is the next output to verify.
-- **Done**: manual order may be preserved for consistency but does not determine future work.
+Die gespeicherte Reihenfolge von oben nach unten in jeder Statusspalte des **Produkt-Boards** ist das einzige Priorisierungsmodell. Es gibt keine Prioritätsstufen, Titelpräfixe, Prioritätslabels oder separaten Prioritätsfelder.
 
-Dependencies remain explicit issue relationships. If a dependency prevents execution, the item is not Ready and belongs in **Needs input** rather than lower in the Ready column. Because GitHub stores manual order as view configuration, contributors must save Product Board changes after reordering cards.
+- **Backlog**: Der oberste Eintrag ist der nächste Kandidat zur Ausarbeitung und Vorbereitung.
+- **Bereit**: Das oberste geeignete Issue ist als Nächstes zu übernehmen.
+- **In Arbeit**: Der oberste Eintrag erhält zuerst Aufmerksamkeit, wenn aktive Arbeit konkurriert.
+- **Benötigt Input**: Der oberste Eintrag ist der nächste zu lösende Blocker oder die nächste Entscheidung.
+- **In Prüfung**: Der oberste Eintrag ist das nächste zu prüfende Ergebnis.
+- **Erledigt**: Die manuelle Reihenfolge darf aus Konsistenzgründen erhalten bleiben, bestimmt aber keine zukünftige Arbeit.
 
-## Pull policy and work-in-progress limit
+Abhängigkeiten bleiben explizite Issue-Beziehungen. Verhindert eine Abhängigkeit die Umsetzung, ist das Issue nicht bereit und gehört nach **Benötigt Input**, statt weiter unten in **Bereit** zu stehen. Da GitHub die manuelle Reihenfolge in der Ansichtskonfiguration speichert, müssen Mitwirkende das Produkt-Board nach dem Verschieben von Karten speichern.
 
-- Mario and Ludwig curate outcomes, readiness, dependencies, and the saved top-to-bottom order in every **Product Board** status column.
-- A contributor with capacity pulls the top suitable issue from the **Ready** column. Skipping a higher item requires a short Issue comment explaining the access or capability reason; a blocked item must leave Ready.
-- Before claiming, re-read the Issue and confirm that it remains **Ready**, unassigned, and without a newer claim comment.
-- Claim atomically: assign the accountable GitHub user, add an AI claim comment if the AI has no separate GitHub identity, and move the item to **In progress** before editing.
-- Each contributor or AI session normally has at most one implementation issue in **In progress**. An exception must be explained in both affected Issues.
-- Review is also pulled. Moving output to **In review** does not push it to a named reviewer; an available qualified reviewer claims it.
+## Pull-Prinzip und Begrenzung paralleler Arbeit
 
-Pull is not an arbitrary free choice. Product responsibility determines what is Ready and its Product Board order; contributor capacity determines when the next suitable item starts.
+- Mario und Ludwig pflegen Ergebnisse, Bereitschaft, Abhängigkeiten und die gespeicherte Reihenfolge von oben nach unten in jeder Statusspalte des **Produkt-Boards**.
+- Mitwirkende mit freier Kapazität übernehmen das oberste geeignete Issue aus **Bereit**. Das Überspringen eines höheren Eintrags erfordert einen kurzen Issue-Kommentar mit dem Zugriffs- oder Eignungsgrund; ein blockiertes Issue muss **Bereit** verlassen.
+- Lies das Issue vor der Übernahme erneut und prüfe, dass es weiterhin **Bereit**, unzugewiesen und ohne neueren Übernahmekommentar ist.
+- Übernimm atomar: Weise das verantwortliche GitHub-Konto zu, ergänze bei einer KI ohne eigene GitHub-Identität einen Übernahmekommentar und verschiebe das Issue vor der Bearbeitung nach **In Arbeit**.
+- Jede mitwirkende Person oder KI-Sitzung hat normalerweise höchstens ein Umsetzungs-Issue in **In Arbeit**. Eine Ausnahme muss in beiden betroffenen Issues begründet werden.
+- Auch Prüfung wird übernommen. Ein Ergebnis nach **In Prüfung** zu verschieben, weist es keiner prüfenden Person zu; verfügbare qualifizierte Prüfende übernehmen die Prüfung.
 
-## Implementation lifecycle
+Pull ist keine beliebige Auswahl. Die Produktverantwortung bestimmt, was bereit ist und an welcher Stelle es im Produkt-Board steht; die Kapazität der Mitwirkenden bestimmt, wann das nächste geeignete Issue beginnt.
 
-1. Start from an open issue; create one first if implementation work has no issue.
-2. Add the issue to the organization Project and confirm scope, acceptance criteria, dependencies, intended Product Board position, and **Work type**.
-3. Product preparation ends in an unassigned **Ready** issue. Do not nominate a person or AI agent to perform it.
-4. When capacity is available, pull the top suitable issue from the **Ready** column: confirm it is unclaimed, assign the accountable GitHub user, add an AI claim comment where needed, and move it to **In progress**.
-5. Work on a branch named `<actor>/<issue-number>-<short-slug>`.
-6. Keep durable state in GitHub. Chat, local notes, and agent memory may support the work but never replace Issue comments or pull-request evidence.
-7. If work pauses, comment with what is complete and the exact missing input or dependency; clear the active assignment and move to **Needs input**. Naming somebody who can provide input is a dependency signal, not an assigned obligation.
-8. Link the pull request with `Closes #<number>` or the full cross-repository reference.
-9. Record tests, checks, screenshots, decisions, and remaining uncertainty in the pull request.
-10. When implementation is ready, clear the implementation assignment and move the item to **In review**. A qualified reviewer pulls the review when capacity is available.
-11. Merge and close only when acceptance criteria are satisfied; then move the item to **Done**.
+## Umsetzungsablauf
 
-An AI agent must reconcile the Project before ending its work: no stopped task may remain **In progress**, and every pause must record the exact next action or missing input. AI agents do not pull work silently; they use the same claim protocol as humans.
+1. Beginne mit einem offenen Issue; erstelle zuerst eines, wenn Umsetzungsarbeit noch keines besitzt.
+2. Füge das Issue zum Organisations-Project hinzu und bestätige Scope, Akzeptanzkriterien, Abhängigkeiten, vorgesehene Position im Produkt-Board und **Arbeitsart**.
+3. Die Produktvorbereitung endet mit einem unzugewiesenen Issue in **Bereit**. Benenne keinen Menschen oder KI-Agenten für die Ausführung.
+4. Übernimm bei freier Kapazität das oberste geeignete Issue aus **Bereit**: Prüfe, dass es nicht beansprucht ist, weise das verantwortliche GitHub-Konto zu, ergänze bei Bedarf einen KI-Übernahmekommentar und verschiebe es nach **In Arbeit**.
+5. Arbeite auf einem Branch nach dem Muster `<akteur>/<issue-nummer>-<kurzname>`.
+6. Halte dauerhaften Stand in GitHub fest. Chats, lokale Notizen und Agenten-Memory dürfen die Arbeit unterstützen, ersetzen aber niemals Issue-Kommentare oder Pull-Request-Nachweise.
+7. Pausiert die Arbeit, kommentiere den erreichten Stand und den exakt fehlenden Input oder die Abhängigkeit; entferne die aktive Zuweisung und verschiebe das Issue nach **Benötigt Input**. Die Benennung einer Person, die Input geben kann, kennzeichnet eine Abhängigkeit und keine zugewiesene Verpflichtung.
+8. Verknüpfe den Pull Request mit `Closes #<nummer>` oder der vollständigen repositoryübergreifenden Referenz.
+9. Dokumentiere Tests, Prüfungen, Screenshots, Entscheidungen und verbleibende Unsicherheit im Pull Request.
+10. Ist die Umsetzung bereit, entferne die Umsetzungszuweisung und verschiebe das Issue nach **In Prüfung**. Verfügbare qualifizierte Prüfende übernehmen die Prüfung.
+11. Merge und schließe erst, wenn die Akzeptanzkriterien erfüllt sind; verschiebe das Issue danach nach **Erledigt**.
 
-Newly discovered scope becomes a separate linked issue. It must not be hidden in a pull request or silently added to the current task.
+Ein KI-Agent muss das Project vor dem Ende seiner Arbeit abgleichen: Keine gestoppte Aufgabe darf in **In Arbeit** verbleiben und jede Pause muss die exakt nächste Aktion oder den fehlenden Input dokumentieren. KI-Agenten übernehmen Arbeit nicht stillschweigend, sondern nach demselben Protokoll wie Menschen.
 
-## Issue as the durable handoff
+Neu entdeckter Scope wird zu einem separaten verknüpften Issue. Er darf weder in einem Pull Request versteckt noch stillschweigend zum aktuellen Auftrag hinzugefügt werden.
 
-The Issue or linked pull request must make it possible for a different human or AI agent to continue without reconstructing a private conversation. Record:
+## Issue als dauerhafte Übergabe
 
-- the current outcome and checked acceptance criteria,
-- decisions made and by whom,
-- relevant evidence and verification results,
-- unresolved risks or blockers,
-- the exact next action or missing input.
+Das Issue oder der verknüpfte Pull Request muss es einem anderen Menschen oder KI-Agenten ermöglichen, ohne Rekonstruktion eines privaten Gesprächs weiterzuarbeiten. Halte fest:
 
-## Asking Codex for the next task
+- das aktuelle Ergebnis und geprüfte Akzeptanzkriterien,
+- getroffene Entscheidungen und deren Verantwortliche,
+- relevante Nachweise und Prüfergebnisse,
+- ungelöste Risiken oder Blocker,
+- die exakt nächste Aktion oder den fehlenden Input.
 
-Use this request:
+## Codex nach der nächsten Aufgabe fragen
 
-> Read the open GitHub Issues and the Sovinity Product project across all Sovinity repositories. Reconcile stale status, assignments, and Work type values before selecting work. Pull the top suitable, unassigned issue from the Product Board's Ready column. Confirm it is still unclaimed, claim it, move it to In progress, and keep the Issue and Project synchronized. If only recommending rather than starting, recommend exactly one issue and list up to three follow-ups without assigning them.
+Verwende diese Anfrage:
+
+> Lies die offenen GitHub Issues und das Sovinity Product Project über alle Sovinity-Repositories hinweg. Gleiche veraltete Status, Zuweisungen und Arbeitsarten ab, bevor du Arbeit auswählst. Übernimm das oberste geeignete, unzugewiesene Issue aus der Bereit-Spalte des Produkt-Boards. Prüfe, dass es noch nicht beansprucht ist, beanspruche es, verschiebe es nach In Arbeit und halte Issue und Project synchron. Wenn du nur empfiehlst statt zu beginnen, empfehle genau ein Issue und nenne bis zu drei Folgeaufgaben, ohne sie zuzuweisen.

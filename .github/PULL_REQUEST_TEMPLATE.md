@@ -1,33 +1,33 @@
 ## Issue
 
-Closes <!-- #123 or owner/repository#123 -->
+Closes <!-- #123 oder owner/repository#123 -->
 
-## Outcome
+## Ergebnis
 
-<!-- What changed for users, operators, or the product? -->
+<!-- Was hat sich für Nutzende, Betrieb oder Produkt geändert? -->
 
-## Verification
+## Verifikation
 
-- [ ] Relevant automated tests or checks pass
-- [ ] Acceptance criteria were checked against concrete evidence
-- [ ] User-facing or layout changes were inspected visually where applicable
-- [ ] No credentials, private data, or environment-specific secrets are included
+- [ ] Relevante automatisierte Tests oder Prüfungen sind erfolgreich
+- [ ] Akzeptanzkriterien wurden anhand konkreter Nachweise geprüft
+- [ ] Nutzerseitige oder Layout-Änderungen wurden, wo erforderlich, visuell geprüft
+- [ ] Es sind keine Zugangsdaten, privaten Daten oder umgebungsspezifischen Geheimnisse enthalten
 
-Evidence:
+Nachweise:
 
-<!-- Commands, results, screenshots, or other reviewable evidence. -->
+<!-- Befehle, Ergebnisse, Screenshots oder andere prüfbare Nachweise. -->
 
-## Scope and risk
+## Scope und Risiko
 
-<!-- Note migrations, privacy/security implications, rollback considerations, and remaining uncertainty. -->
+<!-- Migrationen, Datenschutz-/Sicherheitsfolgen, Rückabwicklung und verbleibende Unsicherheit dokumentieren. -->
 
-## Follow-up work
+## Folgearbeit
 
-<!-- Link separate issues for newly discovered scope. Write "None" when there is no follow-up. -->
+<!-- Separate Issues für neu entdeckten Scope verknüpfen. „Keine“ schreiben, falls nichts folgt. -->
 
-## Project handoff
+## Project-Übergabe
 
-- [ ] The linked Issue and Project status reflect the current state
-- [ ] The implementation assignment is cleared when the work enters the review queue
-- [ ] `Work type` describes suitability without assigning the review to anyone
-- [ ] If work is paused, the Issue records the exact missing input or dependency
+- [ ] Verknüpftes Issue und Project-Status bilden den aktuellen Stand ab
+- [ ] Die Umsetzungszuweisung ist entfernt, sobald die Arbeit in die Prüfwarteschlange wechselt
+- [ ] Die `Arbeitsart` beschreibt die Eignung, ohne die Prüfung jemandem zuzuweisen
+- [ ] Bei einer Pause dokumentiert das Issue den exakt fehlenden Input oder die Abhängigkeit

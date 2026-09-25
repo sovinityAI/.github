@@ -1,5 +1,10 @@
-# Sovinity AI organisation profile
+# Sovinity-AI-Organisationsprofil
 
-This public repository contains the organisation profile shown at <https://github.com/sovinityAI>.
+Dieses öffentliche Repository enthält das unter <https://github.com/sovinityAI> angezeigte Organisationsprofil sowie gemeinsame Arbeitsregeln und GitHub-Vorlagen.
 
-The public profile intentionally makes no availability, compliance, or open-source claim that has not yet been established.
+- [Arbeitsvereinbarung für Menschen und KI](AGENTS.md)
+- [Produkt-Workflow](WORKFLOW.md)
+- [Verbindliche Sprachregel und Glossar](SPRACHE.md)
+- [Beitragsleitfaden](CONTRIBUTING.md)
+
+Das öffentliche Profil enthält bewusst keine Aussagen zu Verfügbarkeit, Compliance oder Open Source, die noch nicht belegt sind. Seine Produktinhalte werden getrennt von den internen Prozessregeln geprüft und freigegeben.
