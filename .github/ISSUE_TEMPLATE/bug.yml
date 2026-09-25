@@ -33,7 +33,7 @@ body:
     id: impact
     attributes:
       label: Auswirkung und betroffene Nutzende
-      description: Beschreibe die Schwere, ohne private Nutzerdaten anzugeben.
+      description: Beschreibe die Schwere, betroffene Nutzende oder Systemteile und den Nutzen einer Behebung, ohne private Nutzerdaten anzugeben.
     validations:
       required: true
   - type: textarea
