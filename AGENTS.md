@@ -27,7 +27,8 @@ Halte das Project-Feld **Arbeitsart** aktuell: `Alle Mitwirkenden`, `KI-geeignet
 Halte bei Produktarbeit das Project-Feld **Produktmeilenstein** aktuell. Produktmeilensteine beschreiben repositoryübergreifende Ergebnisse. Repository-Meilensteine bleiben lokale Metadaten und dürfen nicht als gemeinsame Produkt-Roadmap dienen.
 
 - Erstelle neue Arbeit aus dem Project oder über die gemeinsamen Issue-Formulare der Organisation. Beide Wege müssen das Issue zu **Sovinity Product** hinzufügen.
-- Erstelle für normale Produktarbeit keine leeren Issues. Wird ausnahmsweise ein Wartungs-Issue ohne Formular angelegt, füge es sofort dem Project hinzu.
+- Erstelle für normale Produktarbeit keine leeren Issues. Wird ein Issue per CLI, API oder ausnahmsweise ohne Formular angelegt, füge es sofort dem Project hinzu und lies die Project-Zuordnung zur Verifikation zurück.
+- Behandle die bestätigte Project-Zuordnung als Aufnahme-Gate: Ohne sie darf das Issue weder zugewiesen noch auf **In Arbeit** gesetzt werden; erstelle keinen Branch und beginne keine Umsetzung. Schlägt die Zuordnung oder Verifikation fehl, stoppt die Arbeit an diesem Issue.
 - Native Auto-add-Workflows des Projects sind optionale Sicherheitsnetze und nicht die verbindliche Quelle für die Aufnahme.
 - Produktarbeit wird in **Bereit** vorbereitet und eingeordnet; sie wird keinem Menschen oder KI-Agenten zugewiesen.
 - Bei Übernahme: Prüfe, dass das Issue weiterhin unzugewiesen und nicht übernommen ist, weise es dir oder dem verantwortlichen GitHub-Konto zu, ergänze bei einer KI ohne eigene GitHub-Identität einen kurzen Übernahmekommentar und verschiebe das Issue nach **In Arbeit**.
@@ -40,6 +41,7 @@ Halte bei Produktarbeit das Project-Feld **Produktmeilenstein** aktuell. Produkt
 ## Auswahl der nächsten Aufgabe
 
 - Prüfe bei der Frage nach der nächsten Aufgabe die offenen Issues in `sovinityAI/cloud`, `sovinityAI/SovinityDesktop`, `sovinityAI/website`, `sovinityAI/product` und `sovinityAI/.github`.
+- Prüfe dabei den organisationsweiten Filter `org:sovinityAI is:issue is:open no:project`. Füge jeden offenen Treffer zuerst zum Project hinzu und ordne ihn ein, bevor du neue Arbeit auswählst.
 - Schließe Epics, Arbeit in **Benötigt Input** und Issues aus, die bereits durch einen offenen Pull Request abgedeckt sind.
 - Übernimm Arbeit aus **Bereit**, nicht aus bereits zugewiesener Arbeit anderer Mitwirkender. Verwende die gespeicherte Reihenfolge des Produkt-Boards von oben nach unten: Das oberste geeignete Issue in **Bereit** ist als Nächstes dran.
 - Überspringe Arbeit, deren **Arbeitsart** für die verfügbaren Mitwirkenden ungeeignet ist. `KI-geeignet` bedeutet, dass eine KI die Arbeit ausführen darf; Menschen sind dadurch nicht ausgeschlossen.

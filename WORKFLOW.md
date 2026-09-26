@@ -48,8 +48,33 @@ Ein Issue erscheint einmal im gemeinsamen Project. Sein Repository zeigt, wo es 
 - Erstelle ein Issue vorzugsweise aus dem Project, wenn das Umsetzungs-Repository bereits bekannt ist.
 - Verwende andernfalls das gemeinsame Formular **Produktaufgabe** oder **Fehlerbericht**. Die Formulare fügen das neue Issue über `projects: ["sovinityAI/1"]` zu **Sovinity Product** hinzu.
 - Leere Issues sind für die normale Aufnahme deaktiviert, damit Motivation und Mehrwert, Zielzustand, Akzeptanzkriterien, Abhängigkeiten, Verifikation und Arbeitsart nicht fehlen.
-- Erstellende Personen benötigen die Berechtigung, Einträge zum Organisations-Project hinzuzufügen. Wird ein Issue auf anderem Weg erstellt, füge es bei der Triage zum Project hinzu.
+- Die Project-Zuordnung ist ein verbindliches Aufnahme-Gate. Ein Issue gilt erst als aufgenommen, wenn seine Mitgliedschaft in `sovinityAI/projects/1` nach der Erstellung gelesen und bestätigt wurde.
+- Wird ein Issue per CLI, API oder auf einem anderen Weg außerhalb der Formulare erstellt, füge es unmittelbar zum Project v2 hinzu und verifiziere die Zuordnung, bevor du es zuweist, einen Branch erstellst oder mit der Umsetzung beginnst. Schlägt die Zuordnung oder Verifikation fehl, stoppt die Arbeit an diesem Issue.
 - Native repositoryspezifische Auto-add-Workflows dürfen vorübergehend als Sicherheitsnetz bestehen bleiben. Sie sind weder für jedes Repository erforderlich noch ersetzen sie gemeinsame Formulare oder die Erstellung aus dem Project.
+
+Für die GitHub CLI benötigt die Anmeldung den OAuth-Scope `project`:
+
+```sh
+gh auth refresh -s project
+```
+
+Da `gh issue create --project` je nach GitHub-CLI-Version noch das veraltete Projects-classic-Modell abfragen kann, verwendet der belastbare Project-v2-Weg zwei ausdrücklich geprüfte Schritte:
+
+```sh
+issue_url="$(gh issue create --repo OWNER/REPOSITORY --title "TITEL" --body-file ISSUE_BODY.md)"
+gh project item-add 1 --owner sovinityAI --url "$issue_url"
+gh issue view "$issue_url" --json projectItems --jq '.projectItems'
+```
+
+Die letzte Ausgabe muss das Project `sovinity` enthalten. Erst danach werden Status, Arbeitsart und gegebenenfalls Zuweisung gesetzt.
+
+Prüfe bei jeder repositoryübergreifenden Backlog-Sichtung zusätzlich, ob offene Issues außerhalb des Projects existieren:
+
+```text
+org:sovinityAI is:issue is:open no:project
+```
+
+Jeder Treffer wird vor der Auswahl neuer Arbeit zum Project hinzugefügt und eingeordnet.
 
 **Motivation und Mehrwert** erklären die gewünschte Wirkung: welches heutige Problem oder welche Chance das Issue adressiert, wer oder was profitiert und was sich nach dem Abschluss für Nutzende, Produkt, Betrieb oder Zusammenarbeit verbessert. Der **Zielzustand** beschreibt davon getrennt, was konkret erreicht sein muss. Belastbare qualitative Aussagen genügen; Kennzahlen werden nur verwendet, wenn sie tatsächlich belegt oder als Ziel entschieden sind.
 
@@ -62,6 +87,7 @@ Ein Issue ist bereit, wenn es Folgendes besitzt:
 - eine nachvollziehbare Motivation und einen verständlichen Mehrwert,
 - einen konkreten Zielzustand,
 - prüfbare Akzeptanzkriterien,
+- eine verifizierte Zuordnung zu `sovinityAI/projects/1`,
 - das richtige Repository und die vorgesehene Position von oben nach unten im Produkt-Board,
 - bekannte Abhängigkeiten oder die ausdrückliche Angabe, dass keine bekannt sind,
 - genügend Kontext, um ohne erfundene Produktentscheidungen zu beginnen,
@@ -118,7 +144,7 @@ Pull ist keine beliebige Auswahl. Die Produktverantwortung bestimmt, was bereit 
 ## Umsetzungsablauf
 
 1. Beginne mit einem offenen Issue; erstelle zuerst eines, wenn Umsetzungsarbeit noch keines besitzt.
-2. Füge das Issue zum Organisations-Project hinzu und bestätige Motivation und Mehrwert, Zielzustand, Scope, Akzeptanzkriterien, Abhängigkeiten, vorgesehene Position im Produkt-Board und **Arbeitsart**.
+2. Füge das Issue zum Organisations-Project hinzu, lies die Project-Zuordnung zurück und bestätige Motivation und Mehrwert, Zielzustand, Scope, Akzeptanzkriterien, Abhängigkeiten, vorgesehene Position im Produkt-Board und **Arbeitsart**. Ohne bestätigte Project-Zuordnung endet der Ablauf hier.
 3. Die Produktvorbereitung endet mit einem unzugewiesenen Issue in **Bereit**. Benenne keinen Menschen oder KI-Agenten für die Ausführung.
 4. Übernimm bei freier Kapazität das oberste geeignete Issue aus **Bereit**: Prüfe, dass es nicht beansprucht ist, weise das verantwortliche GitHub-Konto zu, ergänze bei Bedarf einen KI-Übernahmekommentar und verschiebe es nach **In Arbeit**.
 5. Arbeite auf einem Branch nach dem Muster `<akteur>/<issue-nummer>-<kurzname>`.
@@ -149,3 +175,5 @@ Das Issue oder der verknüpfte Pull Request muss es einem anderen Menschen oder 
 Verwende diese Anfrage:
 
 > Lies die offenen GitHub Issues und das Sovinity Product Project über alle Sovinity-Repositories hinweg. Gleiche veraltete Status, Zuweisungen und Arbeitsarten ab, bevor du Arbeit auswählst. Übernimm das oberste geeignete, unzugewiesene Issue aus der Bereit-Spalte des Produkt-Boards. Prüfe, dass es noch nicht beansprucht ist, beanspruche es, verschiebe es nach In Arbeit und halte Issue und Project synchron. Wenn du nur empfiehlst statt zu beginnen, empfehle genau ein Issue und nenne bis zu drei Folgeaufgaben, ohne sie zuzuweisen.
+
+Die Sichtung umfasst den organisationsweiten Filter `org:sovinityAI is:issue is:open no:project`. Offene Treffer werden zuerst zum Project hinzugefügt und eingeordnet; sie dürfen nicht außerhalb des gemeinsamen Backlogs bearbeitet werden.
