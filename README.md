@@ -1,6 +1,6 @@
-# Sovinity-AI-Organisationsprofil
+# Sovinity-Organisationsprofil
 
-Dieses öffentliche Repository enthält das unter <https://github.com/sovinityAI> angezeigte Organisationsprofil sowie gemeinsame Arbeitsregeln und GitHub-Vorlagen.
+Dieses öffentliche Repository enthält das unter <https://github.com/sovinityAI> angezeigte Organisationsprofil der Dachmarke **Sovinity** sowie gemeinsame Arbeitsregeln und GitHub-Vorlagen. Das erste konkrete Produkt heißt **Sovinity Docs**; der technische GitHub-Handle `sovinityAI` legt keinen abweichenden öffentlichen Produktnamen fest.
 
 - [Arbeitsvereinbarung für Menschen und KI](AGENTS.md)
 - [Produkt-Workflow](WORKFLOW.md)
