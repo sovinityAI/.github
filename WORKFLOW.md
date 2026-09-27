@@ -2,7 +2,7 @@
 
 GitHub Issues sind der verbindliche Nachweis geplanter Arbeit für Sovinity. Das organisationsweite Project [Sovinity Product](https://github.com/orgs/sovinityAI/projects/1) bietet die repositoryübergreifende Übersicht; es ist kein zweites Backlog.
 
-Sovinity ist ein Produkt mit einem Backlog. Repositories bestimmen, wo die Umsetzung stattfindet; sie begründen weder getrennte Produkte noch eigene Roadmaps oder Priorisierungslisten.
+Sovinity ist eine Produktfamilie mit einem gemeinsamen Backlog. Repositories bestimmen, wo die Umsetzung stattfindet; sie begründen nicht automatisch ein eigenes Produkt, ein eigenes Backlog oder eigene Roadmaps und Priorisierungslisten. Das erste konkrete Produkt ist **Sovinity Docs**.
 
 Dieser Vertrag ist werkzeugneutral und gilt gleichermaßen für Mario, Ludwig, Codex, andere KI-Agenten und zukünftige Mitwirkende. Sovinity verwendet ein Pull-System: Produktarbeit wird vorbereitet und eingeordnet, während Mitwirkende sie erst bei freier Kapazität übernehmen. Auch eine schnelle KI-Umsetzung durchläuft alle Zustände; der Status beschreibt die aktuelle Wahrheit und nicht die erwartete Dauer.
 

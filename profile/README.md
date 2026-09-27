@@ -1,16 +1,15 @@
-# Sovinity AI
+# Sovinity
 
 **Private AI for documents — with evidence, control, and data sovereignty.**
 
-We are building **Sovinity**, a private document-intelligence workspace for households and small confidential teams.
+**Sovinity** is our umbrella brand for a family of private, local AI products. The first product is **Sovinity Docs**, focused on questions and verifiable answers from documents for households and small confidential teams.
 
-- Ask questions across documents and inspect the exact sources
+- Ask questions across local documents and inspect the exact source passages
 - OCR and semantic search for scanned and digital records
-- Filing suggestions with human approval and undo
-- Local or isolated operation instead of mandatory public-AI processing
-- Connections for existing files, Nextcloud/WebDAV, and email attachments
+- Local processing on the user's computer instead of mandatory public-AI processing
+- A product direction that leaves filing, organisation, and source-file changes outside the current promise
 
-The working MVP is entering product validation for the German market. Reliability, backup and recovery, permissions, and real pilot workflows come before a broad launch.
+The local desktop application is the active technical delivery path for Sovinity Docs. Product validation, release readiness, and the technical verification of source-file boundaries are still in progress; this profile does not announce a public launch. Other possible Sovinity products or modules are not announced or committed here.
 
 ## Repositories
 
@@ -21,8 +20,8 @@ The working MVP is entering product validation for the German market. Reliabilit
 
 1. Evidence before eloquence
 2. Private by architecture
-3. Human control for consequential changes
-4. Connect to existing archives before forcing migration
-5. Reliability before more clients
+3. Keep document answers tied to inspectable evidence
+4. Work with existing local documents before expanding to other sources
+5. Reliability and explicit release gates before broad distribution
 
 > Public repository visibility does not imply an open-source license. Licensing for the product and website will be stated explicitly when decided.
