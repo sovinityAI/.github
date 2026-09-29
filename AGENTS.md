@@ -40,7 +40,7 @@ Halte bei Produktarbeit das Project-Feld **Produktmeilenstein** aktuell. Produkt
 
 ## Auswahl der nächsten Aufgabe
 
-- Prüfe bei der Frage nach der nächsten Aufgabe die offenen Issues in `sovinityAI/cloud`, `sovinityAI/SovinityDesktop`, `sovinityAI/website`, `sovinityAI/product` und `sovinityAI/.github`.
+- Prüfe bei der Frage nach der nächsten Aufgabe die offenen Issues in `sovinityAI/cloud`, `sovinityAI/SovinityDocs`, `sovinityAI/website`, `sovinityAI/product` und `sovinityAI/.github`.
 - Prüfe dabei den organisationsweiten Filter `org:sovinityAI is:issue is:open no:project`. Füge jeden offenen Treffer zuerst zum Project hinzu und ordne ihn ein, bevor du neue Arbeit auswählst.
 - Schließe Epics, Arbeit in **Benötigt Input** und Issues aus, die bereits durch einen offenen Pull Request abgedeckt sind.
 - Übernimm Arbeit aus **Bereit**, nicht aus bereits zugewiesener Arbeit anderer Mitwirkender. Verwende die gespeicherte Reihenfolge des Produkt-Boards von oben nach unten: Das oberste geeignete Issue in **Bereit** ist als Nächstes dran.
