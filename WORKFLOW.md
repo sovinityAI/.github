@@ -11,7 +11,7 @@ Für alle internen Texte gilt die [verbindliche Sprachregel](SPRACHE.md).
 ## Zuständiges Repository
 
 - `sovinityAI/cloud`: gehostete Anwendung und private Arbeitsbereiche, Dienste, KI, Speicher, Konnektoren, Betrieb und Wiederherstellung
-- `sovinityAI/SovinityDesktop`: Desktop-Anwendung, lokale Laufzeit, Paketerstellung und Stores
+- `sovinityAI/SovinityDocs`: Desktop-Anwendung, lokale Laufzeit, Paketerstellung und Stores
 - `sovinityAI/website`: öffentliche Website, Domains, Rechtstexte und Veröffentlichungsarbeit
 - `sovinityAI/product`: repositoryübergreifende Vision, Strategie, Roadmap, Entscheidungen und Discovery
 - `sovinityAI/.github`: organisationsweite Prozesse, gemeinsame Vorlagen und repositoryübergreifende Governance
