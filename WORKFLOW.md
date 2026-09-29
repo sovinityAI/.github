@@ -154,6 +154,7 @@ Pull ist keine beliebige Auswahl. Die Produktverantwortung bestimmt, was bereit 
 9. Dokumentiere Tests, Prüfungen, Screenshots, Entscheidungen und verbleibende Unsicherheit im Pull Request.
 10. Ist die Umsetzung bereit, entferne die Umsetzungszuweisung und verschiebe das Issue nach **In Prüfung**. Verfügbare qualifizierte Prüfende übernehmen die Prüfung.
 11. Merge und schließe erst, wenn die Akzeptanzkriterien erfüllt sind; verschiebe das Issue danach nach **Erledigt**.
+12. Bereinige nach einem verifizierten Merge den zugehörigen Remote-Branch sowie nicht mehr benötigte lokale Branches und Worktrees. Prüfe vor dem Löschen, dass die aktuelle Branch-Spitze dem gemergten Pull-Request-Stand entspricht und keine späteren ungemergten Commits enthält. Branches mit offenen oder ohne Merge geschlossenen Pull Requests, aktive Worktrees und ausdrücklich aufbewahrte Backups bleiben bestehen, bis ihre Übernahme, Verwerfung oder weitere Aufbewahrung ausdrücklich entschieden und dokumentiert ist.
 
 Ein KI-Agent muss das Project vor dem Ende seiner Arbeit abgleichen: Keine gestoppte Aufgabe darf in **In Arbeit** verbleiben und jede Pause muss die exakt nächste Aktion oder den fehlenden Input dokumentieren. KI-Agenten übernehmen Arbeit nicht stillschweigend, sondern nach demselben Protokoll wie Menschen.
 

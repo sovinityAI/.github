@@ -54,6 +54,8 @@ Halte bei Produktarbeit das Project-Feld **Produktmeilenstein** aktuell. Produkt
 - Pull Requests müssen die Änderung zusammenfassen, die ausgeführten Prüfungen nennen und verbleibende Risiken oder unerfüllte Akzeptanzkriterien offenlegen.
 - Führe Pull Requests und Commits auf Deutsch; technische Präfixe und unveränderliche Bezeichner dürfen gemäß [SPRACHE.md](SPRACHE.md) bestehen bleiben.
 - Merge oder schließe ein Issue nicht allein deshalb, weil Dateien geändert wurden; der Nachweis entscheidet über den Abschluss.
+- Bereinige nach einem verifizierten Merge den zugehörigen Remote-Branch sowie nicht mehr benötigte lokale Branches und Worktrees. Prüfe vor dem Löschen, dass die aktuelle Branch-Spitze dem gemergten Pull-Request-Stand entspricht und keine späteren ungemergten Commits enthält.
+- Lösche Branches mit offenen oder ohne Merge geschlossenen Pull Requests, aktive Worktrees und ausdrücklich aufbewahrte Backups nicht automatisch. Dokumentiere bei solchen Fällen zuerst die Entscheidung über Übernahme, Verwerfen oder weitere Aufbewahrung.
 
 ## Werkzeugneutrale Agentenregeln
 
