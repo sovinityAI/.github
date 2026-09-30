@@ -141,6 +141,30 @@ Abhängigkeiten bleiben explizite Issue-Beziehungen. Verhindert eine Abhängigke
 
 Pull ist keine beliebige Auswahl. Die Produktverantwortung bestimmt, was bereit ist und an welcher Stelle es im Produkt-Board steht; die Kapazität der Mitwirkenden bestimmt, wann das nächste geeignete Issue beginnt.
 
+## CI-Auslieferungsgate für `main`
+
+Die verpflichtende Continuous Integration (CI) auf `main` ist das gemeinsame Signal, dass der integrierte Produktstand gebaut, geprüft und ausgeliefert werden kann. Schlägt ein verpflichtender Build, Test oder Paketierungsschritt auf dem aktuellen `main`-Stand fehl, hat die Wiederherstellung dieses Signals höchste operative Priorität. Ein nur auf einem Feature-Branch fehlgeschlagener Lauf fällt nicht unter dieses Gate; er wird vor dem Merge im zugehörigen Issue oder Pull Request behoben.
+
+Während das Gate ausgelöst ist:
+
+1. Verifiziere den Fehlschlag am aktuellen `main`-Commit und sichere einen datensparsamen Link oder Logauszug als Nachweis. Ein erneuter Lauf darf einen vermuteten Infrastruktur- oder Flake-Fehler prüfen, ersetzt aber nicht die Ursachenklärung, wenn der Fehler wiederkehrt.
+2. Verwende ein passendes offenes Fehler-Issue im betroffenen Repository oder erstelle sofort eines. Bestätige die Project-Zuordnung, ordne es ein und übernimm es nach dem normalen Protokoll. Die manuelle Rangfolge regulärer Produktarbeit setzt diese betriebliche Vorrangregel nicht außer Kraft.
+3. Unterbrich reguläre Umsetzungsarbeit im betroffenen Repository. Dokumentiere den sicheren Zwischenstand im bisherigen Issue, entferne dessen aktive Zuweisung und verschiebe es zurück nach **Bereit**. Gehört es wegen einer anderen benannten Abhängigkeit nach **Benötigt Input**, dokumentiere stattdessen genau diese Abhängigkeit. So bleibt die normale WIP-Grenze trotz der Sofortmaßnahme erhalten.
+4. Setze reguläre Merges und Releases im betroffenen Repository aus. Zulässig sind nur Änderungen, die unmittelbar der Diagnose oder Wiederherstellung des Gates dienen.
+5. Stelle die Lieferfähigkeit mit einer vorwärtsgerichteten Änderung wieder her:
+   - Deaktiviere bevorzugt das verursachende Feature über ein vorhandenes Feature-Flag oder eine gleichwertige Modulgrenze und verwende dessen sicheren Standardzustand.
+   - Ist eine getrennte Deaktivierung nicht sicher möglich oder liegt die Ursache außerhalb eines Features, korrigiere die Ursache mit dem kleinsten gezielten Fix, der den vollständigen Lieferpfad wiederherstellt.
+   - Das Zurücksetzen bereits integrierter Commits ist in diesem Prozess kein regulärer Wiederherstellungsweg.
+6. Deaktiviere keine verpflichtende Prüfung und schwäche kein Erfolgskriterium ab, nur um einen grünen Status zu erzeugen. Eine deaktivierte Produktfunktion darf den fehlerhaften Pfad nicht weiterhin beim Start, Build oder in der Auslieferung ausführen.
+7. Führe die verpflichtenden Prüfungen für die Wiederherstellungsänderung aus und bestätige danach den erfolgreichen Lauf auf dem tatsächlich aktualisierten `main`-Commit. Erst dann werden reguläre Merges und Releases wieder aufgenommen.
+8. Trenne Wiederherstellung und dauerhafte Ursachenbehebung: Hat eine Feature-Deaktivierung das Gate wieder geöffnet, dokumentiere die noch offene Ursache und die Bedingungen für eine erneute Aktivierung in einem verknüpften Folge-Issue. Das Feature bleibt bis zum nachgewiesenen Fix deaktiviert.
+
+Diese Vorrangregel ersetzt die Nachweispflicht nicht. Issue, Pull Request und Project halten Ursache, gewählte Wiederherstellung, Prüfungen, verbleibendes Risiko und Folgearbeit dauerhaft fest.
+
+### Modularität und sichere Deaktivierung
+
+Neue Funktionen mit relevantem Integrations- oder Auslieferungsrisiko werden so zugeschnitten, dass ihr Fehler möglichst nicht den Kernpfad blockiert. Wo eine Funktion unabhängig aktiviert werden kann, besitzt sie ein Feature-Flag oder eine gleichwertige Modulgrenze. Der deaktivierte Zustand ist sicher, umgeht den Funktionspfad tatsächlich und wird ebenso geprüft wie der aktivierte Zustand. Eine Funktion wird nach einer störungsbedingten Deaktivierung erst wieder aktiviert, wenn Ursachenfix und verpflichtende Prüfungen nachgewiesen sind.
+
 ## Umsetzungsablauf
 
 1. Beginne mit einem offenen Issue; erstelle zuerst eines, wenn Umsetzungsarbeit noch keines besitzt.
