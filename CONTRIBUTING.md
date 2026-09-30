@@ -15,6 +15,8 @@ Kurzfassung:
 7. Übergebe abgeschlossene Umsetzung an die gemeinsame Pull-Warteschlange **In Prüfung**.
 8. Schließe ein Issue erst, nachdem seine Akzeptanzkriterien verifiziert wurden.
 
+Ist ein verpflichtender CI-Build auf `main` fehlgeschlagen, gilt das [CI-Auslieferungsgate](WORKFLOW.md#ci-auslieferungsgate-für-main): Reguläre Arbeit im betroffenen Repository pausiert, bis eine vorwärtsgerichtete Wiederherstellung auf `main` nachgewiesen ist.
+
 Normalerweise hat jede mitwirkende Person oder KI-Sitzung höchstens ein Umsetzungs-Issue gleichzeitig in Arbeit. Die **Arbeitsart** beschreibt die Eignung; sie weist Arbeit weder einem Menschen noch einer KI zu.
 
 Repositoryspezifische Entwicklungsbefehle und Qualitätsprüfungen bleiben in den lokalen Anweisungen des jeweiligen Repositories.

@@ -47,6 +47,16 @@ Halte bei Produktarbeit das Project-Feld **Produktmeilenstein** aktuell. Produkt
 - Überspringe Arbeit, deren **Arbeitsart** für die verfügbaren Mitwirkenden ungeeignet ist. `KI-geeignet` bedeutet, dass eine KI die Arbeit ausführen darf; Menschen sind dadurch nicht ausgeschlossen.
 - Empfiehl genau ein nächstes Issue und nenne getrennt davon bis zu drei Folgeaufgaben.
 
+## Verbindliches CI-Auslieferungsgate
+
+- Ein fehlgeschlagener verpflichtender CI-Build auf dem aktuellen `main`-Stand hat höchste operative Priorität. Unterbrich reguläre Umsetzungsarbeit im betroffenen Repository und beginne mit der Wiederherstellung der Lieferfähigkeit.
+- Setze reguläre Merges und Releases im betroffenen Repository aus, bis alle verpflichtenden Prüfungen auf dem neuen `main`-Stand wieder erfolgreich sind. Änderungen, die ausschließlich der Wiederherstellung dienen, dürfen weitergeführt werden.
+- Verwende ein bestehendes passendes Issue oder erstelle unverzüglich ein Fehler-Issue im betroffenen Repository, nimm es in das Project auf und übernimm es nach dem normalen Protokoll. Dokumentiere pausierte Arbeit, entferne deren aktive Zuweisung und verschiebe sie zurück nach **Bereit**, sofern sie nicht aus einem anderen Grund **Benötigt Input** ist.
+- Stelle den Build vorwärtsgerichtet wieder her. Deaktiviere nach Möglichkeit zuerst das verursachende Feature über sein Feature-Flag oder eine gleichwertige Modulgrenze. Ist das nicht sicher möglich oder liegt die Ursache außerhalb eines Features, behebe die Ursache mit einer gezielten Änderung. Das Zurücksetzen bereits integrierter Commits ist kein regulärer Wiederherstellungsweg dieses Prozesses.
+- Deaktiviere weder verpflichtende Prüfungen noch schwäche ihre Erfolgskriterien ab, nur um `main` formal grün erscheinen zu lassen. Eine Feature-Deaktivierung ist nur dann eine Wiederherstellung, wenn der verbleibende Produktstand sicher gebaut, geprüft und ausgeliefert werden kann.
+- Prüfe die Wiederherstellung am tatsächlich aktualisierten `main`-Stand. Bleibt nach einer Feature-Deaktivierung Ursachenarbeit offen, erfasse sie vor der Rückkehr zu regulärer Arbeit in einem verknüpften Issue; das Feature bleibt bis zu seinem nachgewiesenen Fix deaktiviert.
+- Plane neue risikoreiche oder unabhängig aktivierbare Funktionen modular. Wo eine getrennte Deaktivierung sinnvoll möglich ist, benötigen sie ein Feature-Flag oder eine gleichwertige Grenze mit sicherem Standardzustand und geprüften aktivierten sowie deaktivierten Pfaden.
+
 ## Git und Pull Requests
 
 - Verwende für Umsetzungsarbeit einen Branch nach dem Muster `<akteur>/<issue-nummer>-<kurzname>`, zum Beispiel `codex/12-fix-import` oder `ludwig/12-fix-import`.
