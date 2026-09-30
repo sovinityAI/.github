@@ -165,6 +165,20 @@ Diese Vorrangregel ersetzt die Nachweispflicht nicht. Issue, Pull Request und Pr
 
 Neue Funktionen mit relevantem Integrations- oder Auslieferungsrisiko werden so zugeschnitten, dass ihr Fehler möglichst nicht den Kernpfad blockiert. Wo eine Funktion unabhängig aktiviert werden kann, besitzt sie ein Feature-Flag oder eine gleichwertige Modulgrenze. Der deaktivierte Zustand ist sicher, umgeht den Funktionspfad tatsächlich und wird ebenso geprüft wie der aktivierte Zustand. Eine Funktion wird nach einer störungsbedingten Deaktivierung erst wieder aktiviert, wenn Ursachenfix und verpflichtende Prüfungen nachgewiesen sind.
 
+## Preview-, Staging- und Produktionsfreigabe
+
+Dieser Abschnitt gilt für Repositories, die neben Produktion eine getrennte Preview-, Staging-, QA- oder Vorabnahmeumgebung betreiben. Repositoryspezifische Dokumentation legt Branches, Zielpfade, Deploymenttechnik und erlaubte Testdaten fest. Ein erfolgreicher Pull-Request-Check belegt nur den geprüften Quellstand; er ersetzt keinen Nachweis, dass derselbe Kandidat in der vorgesehenen Umgebung bereitgestellt und dort geprüft wurde.
+
+1. Weise eine gemeinsam genutzte Vorabnahmeumgebung genau einem Issue beziehungsweise Freigabekandidaten zu. Issue oder Pull Request nennen den belegenden Auftrag, den bereitgestellten Git-Stand und offene Freigaben. Parallele Arbeit darf den Slot nicht stillschweigend überschreiben.
+2. Stelle den aktuellen Kandidaten ausgehend vom aktuellen `main`-Stand bereit. Dokumentiere den erfolgreichen Deployment-Lauf, den Commit und die geprüften URLs oder Pfade. Zugangsdaten und andere Geheimnisse gehören nicht in Issue, Pull Request oder Logs.
+3. Prüfe die Akzeptanzkriterien in der laufenden Vorabnahmeumgebung. Eine Freigabe gilt nur für den tatsächlich bereitgestellten Kandidaten. Jede nachfolgende Codeänderung, jeder Rebase und jede Konfliktauflösung macht den bisherigen Nachweis ungültig und erfordert eine erneute Bereitstellung und Prüfung.
+4. Bei einem Squash-Merge darf die resultierende Commit-ID von der geprüften Commit-ID abweichen. In diesem Fall muss der Git-Tree des gemergten Stands dem freigegebenen Kandidaten entsprechen; eine gleiche Beschreibung oder ein nur ähnlich wirkender Inhalt genügt nicht.
+5. Merge und Produktionsfreigabe bleiben getrennte Entscheidungen. Nach dem Merge werden der erfolgreiche Produktionslauf und die betroffenen produktiven Pfade geprüft und im Issue oder Pull Request festgehalten.
+6. Synchronisiere den Preview-/Staging-Zeiger danach mit dem freigegebenen Produktionsstand. Ist der Slot bereits dokumentiert an den nächsten Kandidaten übergeben, bleibt dessen Stand bestehen und die Übergabe wird ausdrücklich genannt. Ein nicht vorwärtsgerichtetes Umsetzen eines reinen Deployment-Zeigers ist nur nach Prüfung des aktuellen Slot-Eigentümers, des exakten Zielstands und mit einem gegen parallele Änderungen abgesicherten Verfahren zulässig.
+7. Schließe das Issue erst, wenn Produktionsnachweis und erwarteter Zustand der Vorabnahmeumgebung belegt sind. Bei ausdrücklich Preview-only angelegter Arbeit entfallen Merge und Produktionsnachweis; Scope, verbleibende Freigaben und der weiterhin belegte Preview-Slot müssen dann im offenen Issue sichtbar bleiben.
+
+Wo Plattformfunktionen ein technisches Deployment- oder Merge-Gate erlauben, sollen sie diesen Ablauf zusätzlich absichern. Fehlt diese Möglichkeit, bleiben die dokumentierten Nachweise und die gemeinsame Pull-Request-Checkliste verbindlich. Der bei `sovinityAI/website#47` und `sovinityAI/website#49` sichtbar gewordene fehlende Preview-Abgleich ist der Anlass für diese Klarstellung; der historische Auftragsstand wird dadurch nicht rückwirkend verändert.
+
 ## Umsetzungsablauf
 
 1. Beginne mit einem offenen Issue; erstelle zuerst eines, wenn Umsetzungsarbeit noch keines besitzt.
@@ -177,7 +191,7 @@ Neue Funktionen mit relevantem Integrations- oder Auslieferungsrisiko werden so 
 8. Verknüpfe den Pull Request mit `Closes #<nummer>` oder der vollständigen repositoryübergreifenden Referenz.
 9. Dokumentiere Tests, Prüfungen, Screenshots, Entscheidungen und verbleibende Unsicherheit im Pull Request.
 10. Ist die Umsetzung bereit, entferne die Umsetzungszuweisung und verschiebe das Issue nach **In Prüfung**. Verfügbare qualifizierte Prüfende übernehmen die Prüfung.
-11. Merge und schließe erst, wenn die Akzeptanzkriterien erfüllt sind; verschiebe das Issue danach nach **Erledigt**.
+11. Merge erst, wenn die Akzeptanzkriterien und gegebenenfalls die Preview-/Staging-Freigabe erfüllt sind. Schließe erst nach den erforderlichen Produktions- und Synchronisierungsnachweisen; verschiebe das Issue danach nach **Erledigt**.
 12. Bereinige nach einem verifizierten Merge den zugehörigen Remote-Branch sowie nicht mehr benötigte lokale Branches und Worktrees. Prüfe vor dem Löschen, dass die aktuelle Branch-Spitze dem gemergten Pull-Request-Stand entspricht und keine späteren ungemergten Commits enthält. Branches mit offenen oder ohne Merge geschlossenen Pull Requests, aktive Worktrees und ausdrücklich aufbewahrte Backups bleiben bestehen, bis ihre Übernahme, Verwerfung oder weitere Aufbewahrung ausdrücklich entschieden und dokumentiert ist.
 
 Ein KI-Agent muss das Project vor dem Ende seiner Arbeit abgleichen: Keine gestoppte Aufgabe darf in **In Arbeit** verbleiben und jede Pause muss die exakt nächste Aktion oder den fehlenden Input dokumentieren. KI-Agenten übernehmen Arbeit nicht stillschweigend, sondern nach demselben Protokoll wie Menschen.

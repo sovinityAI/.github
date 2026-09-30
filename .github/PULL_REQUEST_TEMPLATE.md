@@ -17,6 +17,20 @@ Nachweise:
 
 <!-- Befehle, Ergebnisse, Screenshots oder andere prüfbare Nachweise. -->
 
+## Umgebungsfreigabe
+
+<!-- Für Repositories ohne getrennte Vorabnahme- und Produktionsumgebung jeweils „Nicht zutreffend“ mit kurzer Begründung eintragen. Keine Zugangsdaten oder privaten Testdaten angeben. -->
+
+- [ ] Preview/Staging: Slot-Zuordnung, bereitgestellter Commit, erfolgreicher Lauf und live geprüfte URLs/Pfade sind nachgewiesen oder nicht zutreffend
+- [ ] Der Preview-/Staging-Nachweis stammt vom letzten Code-Stand nach Rebase, Konfliktlösung oder sonstiger Änderung
+- [ ] Bei einem geplanten Squash-Merge ist der Vergleich des freigegebenen und gemergten Git-Trees als Abschlussnachweis vorgesehen
+- [ ] Produktion: Lauf und live geprüfte Pfade werden nach dem Merge im Issue oder Pull Request nachgetragen oder sind laut Scope nicht vorgesehen
+- [ ] Preview/Staging wird anschließend mit Produktion synchronisiert oder die kontrollierte Übergabe an den nächsten Kandidaten wird dokumentiert
+
+Nachweise oder Begründung:
+
+<!-- Links auf Deployment-Läufe, Commit/Tree, geprüfte URLs/Pfade und verbleibende Freigaben. -->
+
 ## Scope und Risiko
 
 <!-- Migrationen, Datenschutz-/Sicherheitsfolgen, Rückabwicklung und verbleibende Unsicherheit dokumentieren. -->

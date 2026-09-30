@@ -67,6 +67,16 @@ Halte bei Produktarbeit das Project-Feld **Produktmeilenstein** aktuell. Produkt
 - Bereinige nach einem verifizierten Merge den zugehörigen Remote-Branch sowie nicht mehr benötigte lokale Branches und Worktrees. Prüfe vor dem Löschen, dass die aktuelle Branch-Spitze dem gemergten Pull-Request-Stand entspricht und keine späteren ungemergten Commits enthält.
 - Lösche Branches mit offenen oder ohne Merge geschlossenen Pull Requests, aktive Worktrees und ausdrücklich aufbewahrte Backups nicht automatisch. Dokumentiere bei solchen Fällen zuerst die Entscheidung über Übernahme, Verwerfen oder weitere Aufbewahrung.
 
+## Preview-, Staging- und Produktionsfreigabe
+
+- Behandle einen erfolgreichen Pull-Request-Check nicht als Nachweis einer bereitgestellten oder live geprüften Vorabnahmeumgebung.
+- Weise einen gemeinsam genutzten Preview-, Staging- oder QA-Slot genau einem Issue beziehungsweise Freigabekandidaten zu. Dokumentiere Übergaben und überschreibe keine aktive Vorabnahme paralleler Arbeit.
+- Verlange vor der Produktionsfreigabe den erfolgreichen Deployment-Lauf, den bereitgestellten Commit und die live geprüften URLs oder Pfade für denselben Kandidaten. Nach jeder Codeänderung, jedem Rebase und jeder Konfliktauflösung ist dieser Nachweis erneut zu führen.
+- Prüfe bei Squash-Merges die Inhaltsgleichheit über den Git-Tree, wenn sich die Commit-ID des freigegebenen Kandidaten ändert.
+- Prüfe nach dem Merge den Produktionslauf und den produktiven Zustand. Synchronisiere danach den Vorabnahme-Zeiger mit dem freigegebenen Produktionsstand oder dokumentiere, dass der Slot bereits kontrolliert an den nächsten Kandidaten übergeben wurde.
+- Schließe das Issue erst nach diesen Nachweisen. Bei ausdrücklich Preview-only angelegter Arbeit bleiben Produktion und `main` unverändert; das offene Issue nennt die noch ausstehende Freigabe und den belegten Slot.
+- Halte keine Zugangsdaten, privaten Testdaten oder umgebungsspezifischen Geheimnisse in Issue, Pull Request, versionierter Dokumentation oder Logs fest.
+
 ## Werkzeugneutrale Agentenregeln
 
 - Verwende `AGENTS.md` im Repository als gemeinsame, werkzeugneutrale Anweisungsdatei. Ein werkzeugspezifischer Adapter darf sie bei Bedarf importieren oder darauf verweisen, aber keine abweichende Kopie der gemeinsamen Regeln pflegen.
