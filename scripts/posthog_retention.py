@@ -153,7 +153,7 @@ class PostHogClient:
                 return ApiResponse(response.status, data)
         except urllib.error.HTTPError as error:
             error.read()
-            raise RetentionError(f"PostHog API antwortet mit HTTP {error.code}") from error
+            raise RetentionError(f"PostHog API antwortet bei {method} {path} mit HTTP {error.code}") from error
         except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as error:
             raise RetentionError("PostHog API ist nicht belastbar erreichbar") from error
 

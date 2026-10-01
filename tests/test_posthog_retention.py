@@ -1,5 +1,7 @@
+import io
 import json
 import unittest
+import urllib.error
 from datetime import datetime, timezone
 from unittest.mock import patch
 
@@ -127,6 +129,21 @@ class RequestStateTests(unittest.TestCase):
 
 
 class RunTests(unittest.TestCase):
+    def test_http_error_names_operation_without_response_body(self):
+        error = urllib.error.HTTPError(
+            "https://eu.posthog.com/api/projects/289846/data_deletion_requests/",
+            403,
+            "Forbidden",
+            {},
+            io.BytesIO(b'{"detail":"private response"}'),
+        )
+        client = PostHogClient("read-key", "write-key", 289846)
+        with patch("urllib.request.urlopen", side_effect=error):
+            with self.assertRaisesRegex(RetentionError, "GET .*/data_deletion_requests/.*HTTP 403") as raised:
+                client.list_requests()
+
+        self.assertNotIn("private response", str(raised.exception))
+
     def test_client_separates_read_and_write_credentials(self):
         authorizations = []
 
