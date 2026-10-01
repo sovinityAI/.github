@@ -1,22 +1,13 @@
 # Zu Sovinity beitragen
 
-Sovinity verwendet GitHub Issues als verbindliche Quelle und das organisationsweite Project [Sovinity Product](https://github.com/orgs/sovinityAI/projects/1) als repositoryübergreifende Arbeitsansicht.
+Dieses Repository enthält das öffentliche Organisationsprofil und gemeinsame GitHub-Vorlagen. Änderungen müssen öffentlich geeignet, sachlich und auf den notwendigen Umfang begrenzt sein.
 
-Für alle Mitwirkenden gilt derselbe Lebenszyklus – unabhängig davon, ob Mario, Ludwig, Codex, ein anderer KI-Agent oder eine zukünftige Person die Arbeit übernimmt. Lies vor Beginn oder Übergabe einer Arbeit den vollständigen [Produkt-Workflow für Menschen und KI](WORKFLOW.md) und die [Sprachregel](SPRACHE.md).
+## Grundregeln
 
-Kurzfassung:
+1. Verwende ein verknüpftes GitHub Issue mit prüfbaren Akzeptanzkriterien.
+2. Arbeite auf einem Branch nach dem Muster `<akteur>/<issue-nummer>-<kurzname>`.
+3. Beschreibe Ergebnis, Prüfung und verbleibende Risiken im Pull Request.
+4. Veröffentliche keine Zugangsdaten, personenbezogenen Daten, privaten Testdaten, internen Betriebsdetails oder nicht belegten Produktbehauptungen.
+5. Prüfe öffentliche Produkttexte gegen die freigegebene Produktrichtung und den tatsächlichen Release-Stand.
 
-1. Arbeite auf Grundlage eines offenen Issues mit prüfbaren Akzeptanzkriterien.
-2. Übernimm das oberste geeignete, unzugewiesene Issue aus **Bereit** nur dann, wenn du Kapazität hast.
-3. Beanspruche es vor der Bearbeitung, indem du das verantwortliche GitHub-Konto zuweist und das Issue nach **In Arbeit** verschiebst.
-4. Halte **Status**, Zuweisung und **Arbeitsart** im Project synchron mit der Realität.
-5. Dokumentiere Entscheidungen, Blocker, Übergaben und Prüfnachweise in GitHub.
-6. Verwende **Benötigt Input**, wenn Arbeit wegen einer Entscheidung oder Abhängigkeit pausiert, und entferne die aktive Zuweisung.
-7. Übergebe abgeschlossene Umsetzung an die gemeinsame Pull-Warteschlange **In Prüfung**.
-8. Schließe ein Issue erst, nachdem seine Akzeptanzkriterien verifiziert wurden.
-
-Ist ein verpflichtender CI-Build auf `main` fehlgeschlagen, gilt das [CI-Auslieferungsgate](WORKFLOW.md#ci-auslieferungsgate-für-main): Reguläre Arbeit im betroffenen Repository pausiert, bis eine vorwärtsgerichtete Wiederherstellung auf `main` nachgewiesen ist.
-
-Normalerweise hat jede mitwirkende Person oder KI-Sitzung höchstens ein Umsetzungs-Issue gleichzeitig in Arbeit. Die **Arbeitsart** beschreibt die Eignung; sie weist Arbeit weder einem Menschen noch einer KI zu.
-
-Repositoryspezifische Entwicklungsbefehle und Qualitätsprüfungen bleiben in den lokalen Anweisungen des jeweiligen Repositories.
+Organisationsmitglieder finden den vollständigen internen Workflow im privaten Repository [`sovinityAI/.github-private`](https://github.com/sovinityAI/.github-private).
