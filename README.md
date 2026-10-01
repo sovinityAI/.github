@@ -1,10 +1,11 @@
-# Sovinity-Organisationsprofil
+# Öffentliches Sovinity-Organisationsprofil
 
-Dieses öffentliche Repository enthält das unter <https://github.com/sovinityAI> angezeigte Organisationsprofil der Dachmarke **Sovinity** sowie gemeinsame Arbeitsregeln und GitHub-Vorlagen. Das erste konkrete Produkt heißt **Sovinity Docs**; der technische GitHub-Handle `sovinityAI` legt keinen abweichenden öffentlichen Produktnamen fest.
+Dieses öffentliche Repository enthält das unter <https://github.com/sovinityAI> angezeigte Organisationsprofil sowie die gemeinsamen GitHub-Issue- und Pull-Request-Vorlagen.
 
-- [Arbeitsvereinbarung für Menschen und KI](AGENTS.md)
-- [Produkt-Workflow](WORKFLOW.md)
-- [Verbindliche Sprachregel und Glossar](SPRACHE.md)
+- [Öffentliches Organisationsprofil](profile/README.md)
 - [Beitragsleitfaden](CONTRIBUTING.md)
+- [Öffentliche Repository-Regeln](AGENTS.md)
 
-Das öffentliche Profil enthält bewusst keine Aussagen zu Verfügbarkeit, Compliance oder Open Source, die noch nicht belegt sind. Seine Produktinhalte werden getrennt von den internen Prozessregeln geprüft und freigegeben.
+Interne Arbeitsabläufe, Produktsteuerung und Kennzahlen werden im privaten Organisationsbereich gepflegt. Dieses Repository enthält keine internen Dashboards, personenbezogenen Daten, Zugangsdaten oder umgebungsspezifischen Betriebsdetails.
+
+Das öffentliche Profil macht keine unbelegten Aussagen zu Verfügbarkeit, Compliance, Lizenzierung oder Open Source.

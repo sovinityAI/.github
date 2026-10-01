@@ -1,91 +1,24 @@
-# Sovinity-Arbeitsvereinbarung für Menschen und KI
+# Arbeitsregeln für das öffentliche Organisations-Repository
 
-## GitHub-Auftragsvertrag
+## Scope
 
-- GitHub Issues sind die verbindliche Quelle für geplante Arbeit. Das organisationsweite Project ist [Sovinity Product](https://github.com/orgs/sovinityAI/projects/1).
-- Sovinity hat ein gemeinsames Product Backlog über alle Repositories hinweg. Das Repository bestimmt den technischen Umsetzungsort; es begründet weder ein eigenes Produkt noch ein eigenes Backlog.
-- Umsetzungsarbeit benötigt ein offenes Issue in dem Repository, dem das Ergebnis gehört. Organisationsweite Prozesse und Vorlagen gehören in `sovinityAI/.github`.
-- Lies vor jeder Änderung das vollständige Issue einschließlich Kommentaren, Labels, Abhängigkeiten, verknüpften Pull Requests und Akzeptanzkriterien.
-- Halte Änderungen innerhalb des Issue-Scopes. Neu entdeckte Arbeit wird als separates verknüpftes Issue erfasst, statt den Scope stillschweigend zu erweitern.
-- Markiere ein Issue erst dann als abgeschlossen, wenn jedes Akzeptanzkriterium anhand konkreter Nachweise geprüft wurde.
-- Chats, lokale Notizen und Agenten-Memory sind kein dauerhafter Auftragsstand. Halte Entscheidungen, Blocker, Übergaben und Abschlussnachweise im GitHub Issue oder im verknüpften Pull Request fest.
-- Neue und wesentlich überarbeitete interne Arbeit wird nach [SPRACHE.md](SPRACHE.md) auf Deutsch geführt.
+- Dieses Repository ist öffentlich. Es enthält ausschließlich das öffentliche Organisationsprofil, öffentliche Hinweise und die von GitHub organisationsweit verwendeten Issue- und Pull-Request-Vorlagen.
+- Interne Produktsteuerung, Kennzahlen, Verantwortlichkeiten, Betriebsdetails und ausführliche Workflow-Dokumentation gehören in das private Repository [`sovinityAI/.github-private`](https://github.com/sovinityAI/.github-private).
+- Produktstrategie und Entscheidungen bleiben im privaten Repository [`sovinityAI/product`](https://github.com/sovinityAI/product).
 
-## Verbindliche Project-Synchronisierung
+## Änderungen
 
-Menschen und KI-Agenten verwenden in [Sovinity Product](https://github.com/orgs/sovinityAI/projects/1) denselben Lebenszyklus:
+- Beginne Änderungen nur auf Grundlage eines offenen verknüpften Issues mit prüfbaren Akzeptanzkriterien. Wenn der vollständige Kontext nicht öffentlich sein soll, darf das koordinierende Issue in `.github-private` liegen.
+- Lies Issue, Kommentare, Abhängigkeiten und Akzeptanzkriterien vollständig und halte die Änderung innerhalb des vereinbarten Scopes.
+- Verwende einen Branch nach dem Muster `<akteur>/<issue-nummer>-<kurzname>` und einen Pull Request auf Deutsch; unveränderliche technische Bezeichner dürfen englisch bleiben.
+- Dokumentiere ausgeführte Prüfungen und verbleibende Risiken. Schließe ein Issue erst nach nachgewiesener Erfüllung der Akzeptanzkriterien.
+- Veröffentliche niemals Zugangsdaten, personenbezogene Daten, private Testdaten, Kundendokumente, interne Betriebsdetails oder umgebungsspezifische Geheimnisse.
 
-- **Backlog**: gültige Arbeit, die noch nicht bereit oder ausgewählt ist.
-- **Bereit**: ausreichend beschrieben, nicht blockiert, manuell eingeordnet, nicht zugewiesen und für geeignete Mitwirkende verfügbar.
-- **In Arbeit**: Ein Mensch oder KI-Agent hat das Issue übernommen und arbeitet aktiv daran, auch wenn die Arbeit nur wenige Minuten dauert.
-- **Benötigt Input**: Die Arbeit pausiert wegen einer benannten Entscheidung, Abhängigkeit, sensiblen Information oder externen Zuständigkeit.
-- **In Prüfung**: Ein Ergebnis liegt vor und wartet auf menschliche, rechtliche, visuelle oder technische Prüfung.
-- **Erledigt**: Die Akzeptanzkriterien sind nachgewiesen und das Issue ist geschlossen.
+## Öffentliche Aussagen
 
-Halte das Project-Feld **Arbeitsart** aktuell: `Alle Mitwirkenden`, `KI-geeignet`, `Menschliche Entscheidung`, `Gemeinsame Arbeit` oder `Extern`. Es beschreibt die Arbeit und weist sie niemandem zu.
+- Trenne bestätigte Produktentscheidungen, verifizierte Umsetzungsfakten, Hypothesen und offene Fragen.
+- Behaupte keine Veröffentlichung, Plattformunterstützung, Lizenzierung, Compliance, Sicherheitsgarantie oder Produkteigenschaft ohne aktuellen Nachweis.
+- Das öffentliche Profil beschreibt Sovinity Docs als lokale Anwendung für eine Person. Teamnutzung, gemeinsame Arbeitsräume und Serverbetrieb sind keine aktuelle Produktzusage.
+- Gemeinsame Vorlagen bleiben repositoryneutral und enthalten keine repositoryspezifischen Produktanforderungen.
 
-Halte bei Produktarbeit das Project-Feld **Produktmeilenstein** aktuell. Produktmeilensteine beschreiben repositoryübergreifende Ergebnisse. Repository-Meilensteine bleiben lokale Metadaten und dürfen nicht als gemeinsame Produkt-Roadmap dienen.
-
-- Erstelle neue Arbeit aus dem Project oder über die gemeinsamen Issue-Formulare der Organisation. Beide Wege müssen das Issue zu **Sovinity Product** hinzufügen.
-- Erstelle für normale Produktarbeit keine leeren Issues. Wird ein Issue per CLI, API oder ausnahmsweise ohne Formular angelegt, füge es sofort dem Project hinzu und lies die Project-Zuordnung zur Verifikation zurück.
-- Behandle die bestätigte Project-Zuordnung als Aufnahme-Gate: Ohne sie darf das Issue weder zugewiesen noch auf **In Arbeit** gesetzt werden; erstelle keinen Branch und beginne keine Umsetzung. Schlägt die Zuordnung oder Verifikation fehl, stoppt die Arbeit an diesem Issue.
-- Native Auto-add-Workflows des Projects sind optionale Sicherheitsnetze und nicht die verbindliche Quelle für die Aufnahme.
-- Produktarbeit wird in **Bereit** vorbereitet und eingeordnet; sie wird keinem Menschen oder KI-Agenten zugewiesen.
-- Bei Übernahme: Prüfe, dass das Issue weiterhin unzugewiesen und nicht übernommen ist, weise es dir oder dem verantwortlichen GitHub-Konto zu, ergänze bei einer KI ohne eigene GitHub-Identität einen kurzen Übernahmekommentar und verschiebe das Issue nach **In Arbeit**.
-- Begrenze parallele Arbeit auf ein Umsetzungs-Issue pro mitwirkender Person oder KI-Sitzung, sofern keine dokumentierte Ausnahme erforderlich ist.
-- Bei einer Pause: Ergänze einen knappen Issue-Kommentar mit dem erreichten Stand und dem exakt fehlenden Input oder der Abhängigkeit, entferne die aktive Zuweisung und verschiebe das Issue nach **Benötigt Input**.
-- Nach Abschluss der Umsetzung: Dokumentiere die Prüfnachweise, entferne die Umsetzungszuweisung und verschiebe das Issue nach **In Prüfung**, damit verfügbare Prüfende es übernehmen können.
-- Nach verifiziertem Abschluss: Schließe das Issue und verschiebe es nach **Erledigt**.
-- Lasse ein Issue nie in **In Arbeit**, wenn die Arbeit gestoppt wurde oder eine Agenten-Sitzung ohne aktive Fortsetzung endet.
-
-## Auswahl der nächsten Aufgabe
-
-- Prüfe bei der Frage nach der nächsten Aufgabe die offenen Issues in `sovinityAI/cloud`, `sovinityAI/SovinityDocs`, `sovinityAI/website`, `sovinityAI/product` und `sovinityAI/.github`.
-- Prüfe dabei den organisationsweiten Filter `org:sovinityAI is:issue is:open no:project`. Füge jeden offenen Treffer zuerst zum Project hinzu und ordne ihn ein, bevor du neue Arbeit auswählst.
-- Schließe Epics, Arbeit in **Benötigt Input** und Issues aus, die bereits durch einen offenen Pull Request abgedeckt sind.
-- Übernimm Arbeit aus **Bereit**, nicht aus bereits zugewiesener Arbeit anderer Mitwirkender. Verwende die gespeicherte Reihenfolge des Produkt-Boards von oben nach unten: Das oberste geeignete Issue in **Bereit** ist als Nächstes dran.
-- Überspringe Arbeit, deren **Arbeitsart** für die verfügbaren Mitwirkenden ungeeignet ist. `KI-geeignet` bedeutet, dass eine KI die Arbeit ausführen darf; Menschen sind dadurch nicht ausgeschlossen.
-- Empfiehl genau ein nächstes Issue und nenne getrennt davon bis zu drei Folgeaufgaben.
-
-## Verbindliches CI-Auslieferungsgate
-
-- Ein fehlgeschlagener verpflichtender CI-Build auf dem aktuellen `main`-Stand hat höchste operative Priorität. Unterbrich reguläre Umsetzungsarbeit im betroffenen Repository und beginne mit der Wiederherstellung der Lieferfähigkeit.
-- Setze reguläre Merges und Releases im betroffenen Repository aus, bis alle verpflichtenden Prüfungen auf dem neuen `main`-Stand wieder erfolgreich sind. Änderungen, die ausschließlich der Wiederherstellung dienen, dürfen weitergeführt werden.
-- Verwende ein bestehendes passendes Issue oder erstelle unverzüglich ein Fehler-Issue im betroffenen Repository, nimm es in das Project auf und übernimm es nach dem normalen Protokoll. Dokumentiere pausierte Arbeit, entferne deren aktive Zuweisung und verschiebe sie zurück nach **Bereit**, sofern sie nicht aus einem anderen Grund **Benötigt Input** ist.
-- Stelle den Build vorwärtsgerichtet wieder her. Deaktiviere nach Möglichkeit zuerst das verursachende Feature über sein Feature-Flag oder eine gleichwertige Modulgrenze. Ist das nicht sicher möglich oder liegt die Ursache außerhalb eines Features, behebe die Ursache mit einer gezielten Änderung. Das Zurücksetzen bereits integrierter Commits ist kein regulärer Wiederherstellungsweg dieses Prozesses.
-- Deaktiviere weder verpflichtende Prüfungen noch schwäche ihre Erfolgskriterien ab, nur um `main` formal grün erscheinen zu lassen. Eine Feature-Deaktivierung ist nur dann eine Wiederherstellung, wenn der verbleibende Produktstand sicher gebaut, geprüft und ausgeliefert werden kann.
-- Prüfe die Wiederherstellung am tatsächlich aktualisierten `main`-Stand. Bleibt nach einer Feature-Deaktivierung Ursachenarbeit offen, erfasse sie vor der Rückkehr zu regulärer Arbeit in einem verknüpften Issue; das Feature bleibt bis zu seinem nachgewiesenen Fix deaktiviert.
-- Plane neue risikoreiche oder unabhängig aktivierbare Funktionen modular. Wo eine getrennte Deaktivierung sinnvoll möglich ist, benötigen sie ein Feature-Flag oder eine gleichwertige Grenze mit sicherem Standardzustand und geprüften aktivierten sowie deaktivierten Pfaden.
-
-## Git und Pull Requests
-
-- Verwende für Umsetzungsarbeit einen Branch nach dem Muster `<akteur>/<issue-nummer>-<kurzname>`, zum Beispiel `codex/12-fix-import` oder `ludwig/12-fix-import`.
-- Referenziere das Issue in Commits und Pull Requests. Verwende `Closes #<nummer>` für Issues im selben Repository oder `Closes owner/repository#<nummer>` für repositoryübergreifende Issues.
-- Pull Requests müssen die Änderung zusammenfassen, die ausgeführten Prüfungen nennen und verbleibende Risiken oder unerfüllte Akzeptanzkriterien offenlegen.
-- Führe Pull Requests und Commits auf Deutsch; technische Präfixe und unveränderliche Bezeichner dürfen gemäß [SPRACHE.md](SPRACHE.md) bestehen bleiben.
-- Merge oder schließe ein Issue nicht allein deshalb, weil Dateien geändert wurden; der Nachweis entscheidet über den Abschluss.
-- Bereinige nach einem verifizierten Merge den zugehörigen Remote-Branch sowie nicht mehr benötigte lokale Branches und Worktrees. Prüfe vor dem Löschen, dass die aktuelle Branch-Spitze dem gemergten Pull-Request-Stand entspricht und keine späteren ungemergten Commits enthält.
-- Lösche Branches mit offenen oder ohne Merge geschlossenen Pull Requests, aktive Worktrees und ausdrücklich aufbewahrte Backups nicht automatisch. Dokumentiere bei solchen Fällen zuerst die Entscheidung über Übernahme, Verwerfen oder weitere Aufbewahrung.
-
-## Preview-, Staging- und Produktionsfreigabe
-
-- Behandle einen erfolgreichen Pull-Request-Check nicht als Nachweis einer bereitgestellten oder live geprüften Vorabnahmeumgebung.
-- Weise einen gemeinsam genutzten Preview-, Staging- oder QA-Slot genau einem Issue beziehungsweise Freigabekandidaten zu. Dokumentiere Übergaben und überschreibe keine aktive Vorabnahme paralleler Arbeit.
-- Verlange vor der Produktionsfreigabe den erfolgreichen Deployment-Lauf, den bereitgestellten Commit und die live geprüften URLs oder Pfade für denselben Kandidaten. Nach jeder Codeänderung, jedem Rebase und jeder Konfliktauflösung ist dieser Nachweis erneut zu führen.
-- Prüfe bei Squash-Merges die Inhaltsgleichheit über den Git-Tree, wenn sich die Commit-ID des freigegebenen Kandidaten ändert.
-- Prüfe nach dem Merge den Produktionslauf und den produktiven Zustand. Synchronisiere danach den Vorabnahme-Zeiger mit dem freigegebenen Produktionsstand oder dokumentiere, dass der Slot bereits kontrolliert an den nächsten Kandidaten übergeben wurde.
-- Schließe das Issue erst nach diesen Nachweisen. Bei ausdrücklich Preview-only angelegter Arbeit bleiben Produktion und `main` unverändert; das offene Issue nennt die noch ausstehende Freigabe und den belegten Slot.
-- Halte keine Zugangsdaten, privaten Testdaten oder umgebungsspezifischen Geheimnisse in Issue, Pull Request, versionierter Dokumentation oder Logs fest.
-
-## Werkzeugneutrale Agentenregeln
-
-- Verwende `AGENTS.md` im Repository als gemeinsame, werkzeugneutrale Anweisungsdatei. Ein werkzeugspezifischer Adapter darf sie bei Bedarf importieren oder darauf verweisen, aber keine abweichende Kopie der gemeinsamen Regeln pflegen.
-- Halte dauerhaften Auftrags- und Produktstand in GitHub und versionierten Repository-Dokumenten fest. Chatverläufe, lokale Notizen, Profile, Memory und Sitzungen einzelner KI-Werkzeuge sind temporäre Hilfen und niemals gemeinsame Infrastruktur oder verbindliche Quelle.
-- Verwende Agent Skills (`SKILL.md`) nur für wiederverwendbare Abläufe, Skripte, Referenzen und Vorlagen. Lege dort keine aktuelle Produktstrategie, Roadmap, Entscheidungen, Zugangsdaten oder personenbezogenen Daten ab.
-- Verwende das Model Context Protocol (MCP) nur, wenn eine standardisierte Schnittstelle zu externen Werkzeugen oder Daten benötigt wird. MCP-Verbindungen ersetzen Issues, Pull Requests und Repository-Dokumente nicht als dauerhaften Nachweis.
-
-## Scope des Organisations-Repositories
-
-- Halte gemeinsame Issue-Formulare, Pull-Request-Vorlagen, Workflow-Dokumentation und das öffentliche Organisationsprofil sachlich und wiederverwendbar.
-- Nimm keine repositoryspezifischen Produktanforderungen in gemeinsame Vorlagen auf.
-- Füge niemals Geheimnisse, personenbezogene Daten, rein interne Betriebsdetails oder unbelegte öffentliche Aussagen hinzu.
+Der vollständige interne Lebenszyklus und die Sprachregel liegen für Organisationsmitglieder in `.github-private`.

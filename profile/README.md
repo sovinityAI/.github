@@ -2,7 +2,7 @@
 
 **Private AI for documents — with evidence, control, and data sovereignty.**
 
-**Sovinity** is our umbrella brand for a family of private, local AI products. The first product is **Sovinity Docs**, focused on questions and verifiable answers from documents for households and small confidential teams.
+**Sovinity** is our umbrella brand for a family of private, local AI products. The first product is **Sovinity Docs**, focused on questions and verifiable answers from local documents for personal use, beginning with household documents.
 
 - Ask questions across local documents and inspect the exact source passages
 - OCR and semantic search for scanned and digital records
