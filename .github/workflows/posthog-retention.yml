@@ -1,0 +1,68 @@
+name: PostHog-Aufbewahrung
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/posthog-retention.yml"
+      - "scripts/posthog_retention.py"
+      - "tests/test_posthog_retention.py"
+      - "docs/posthog-analytics-aufbewahrung.md"
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/posthog-retention.yml"
+      - "scripts/posthog_retention.py"
+      - "tests/test_posthog_retention.py"
+      - "docs/posthog-analytics-aufbewahrung.md"
+  schedule:
+    - cron: "17 2 * * *"
+  workflow_dispatch:
+    inputs:
+      modus:
+        description: "Nur Vorschau oder offenen Auftrag pruefen und faellige Ereignisse zur Loeschung einreichen"
+        required: true
+        default: dry-run
+        type: choice
+        options:
+          - dry-run
+          - reconcile-submit
+
+permissions:
+  contents: read
+
+concurrency:
+  group: posthog-aufbewahrung
+  cancel-in-progress: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Loeschclient pruefen
+        run: python -m unittest discover -s tests -p 'test_posthog_retention.py' -v
+
+  retention:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      POSTHOG_RETENTION_API_KEY: ${{ secrets.POSTHOG_RETENTION_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: PostHog-Aufbewahrung ausfuehren
+        shell: bash
+        env:
+          REQUESTED_MODE: ${{ inputs.modus }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          mode="${REQUESTED_MODE:-reconcile-submit}"
+          if [ "$EVENT_NAME" = "schedule" ]; then mode="reconcile-submit"; fi
+          python scripts/posthog_retention.py --mode "$mode"
