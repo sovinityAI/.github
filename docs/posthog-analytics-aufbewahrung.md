@@ -28,10 +28,12 @@ Eine zweite Vorschau zaehlt unbekannte Sovinity-Produktionsereignisse im selben 
 
 ## Zugang und Geheimnisse
 
-Der GitHub-Secretname lautet `POSTHOG_RETENTION_API_KEY`. Das zugehoerige PostHog Personal API Token benoetigt ausschliesslich:
+PostHog bildet `data_deletion:read` und `data_deletion:write` in der Personal-API-Key-Oberflaeche als exklusive Zugriffsstufen ab. Deshalb verwendet der Client zwei getrennte, jeweils minimal berechtigte Tokens:
 
-- `data_deletion:read`
-- `data_deletion:write`
+- `POSTHOG_RETENTION_READ_API_KEY` mit ausschliesslich `data_deletion:read` zum Lesen frueherer Auftraege und Statuswerte
+- `POSTHOG_RETENTION_API_KEY` mit ausschliesslich `data_deletion:write` fuer Vorschau und Einreichung; der Workflow stellt es dem Client als `POSTHOG_RETENTION_WRITE_API_KEY` bereit
+
+Der produktive Lauf benoetigt beide Repository-Secrets. Ein fehlendes Token bricht den Lauf vor jedem API-Aufruf sichtbar ab. Die Trennung verhindert zugleich, dass der nur lesende Statuspfad den schreibenden Schluessel verwendet.
 
 Der oeffentliche Projekt-Token `phc_...` ist dafuer ungeeignet. Ein persoenliches Token `phx_...` darf weder in Git, Issue, Pull Request, Workflow-Ausgabe noch Browser-Screenshot erscheinen. Nach Erzeugung wird es unmittelbar als Repository-Secret in `sovinityAI/.github` gespeichert. Bei vermuteter Offenlegung wird es zuerst in PostHog widerrufen, danach ersetzt und der Vorfall dokumentiert.
 

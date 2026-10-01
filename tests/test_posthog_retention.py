@@ -1,6 +1,7 @@
 import json
 import unittest
 from datetime import datetime, timezone
+from unittest.mock import patch
 
 from scripts.posthog_retention import (
     ApiResponse,
@@ -33,6 +34,21 @@ class FakeTransport:
         if path.endswith("/preview/"):
             return ApiResponse(200, {"count": self.previews.pop(0)})
         return ApiResponse(self.submit_status, {"id": "request-1", "status": "pending"})
+
+
+class FakeUrlResponse:
+    def __init__(self, status, payload):
+        self.status = status
+        self.payload = payload
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *_args):
+        return False
+
+    def read(self):
+        return json.dumps(self.payload).encode("utf-8")
 
 
 class CalendarTests(unittest.TestCase):
@@ -86,34 +102,51 @@ class RequestStateTests(unittest.TestCase):
     def test_unknown_status_blocks(self):
         transport = FakeTransport(requests=[{"id": "x", "status": "mystery"}])
         with self.assertRaisesRegex(RetentionError, "Unbekannter"):
-            run(PostHogClient("test", 289846, transport), "dry-run", NOW, 14)
+            run(PostHogClient("read", "write", 289846, transport), "dry-run", NOW, 14)
 
     def test_failed_request_blocks(self):
         transport = FakeTransport(requests=[{"id": "x", "status": "failed"}])
         with self.assertRaisesRegex(RetentionError, "fehlgeschlagen"):
-            run(PostHogClient("test", 289846, transport), "dry-run", NOW, 14)
+            run(PostHogClient("read", "write", 289846, transport), "dry-run", NOW, 14)
 
     def test_recent_pending_request_prevents_duplicate(self):
         transport = FakeTransport(requests=[{"id": "x", "status": "queued", "created_at": "2026-09-29T12:00:00Z"}])
-        result = run(PostHogClient("test", 289846, transport), "reconcile-submit", NOW, 14)
+        result = run(PostHogClient("read", "write", 289846, transport), "reconcile-submit", NOW, 14)
         self.assertEqual(result["result"], "pending")
         self.assertEqual(len(transport.calls), 1)
 
     def test_stale_pending_request_fails_visibly(self):
         transport = FakeTransport(requests=[{"id": "x", "status": "queued", "created_at": "2026-09-20T12:00:00Z"}])
         with self.assertRaisesRegex(RetentionError, "neun Tage"):
-            run(PostHogClient("test", 289846, transport), "reconcile-submit", NOW, 14)
+            run(PostHogClient("read", "write", 289846, transport), "reconcile-submit", NOW, 14)
 
     def test_pending_request_without_timestamp_fails_visibly(self):
         transport = FakeTransport(requests=[{"id": "x", "status": "queued"}])
         with self.assertRaisesRegex(RetentionError, "Erstellzeitpunkt"):
-            run(PostHogClient("test", 289846, transport), "reconcile-submit", NOW, 14)
+            run(PostHogClient("read", "write", 289846, transport), "reconcile-submit", NOW, 14)
 
 
 class RunTests(unittest.TestCase):
+    def test_client_separates_read_and_write_credentials(self):
+        authorizations = []
+
+        def fake_urlopen(request, timeout):
+            self.assertEqual(timeout, 30)
+            authorizations.append(request.get_header("Authorization"))
+            if request.method == "GET":
+                return FakeUrlResponse(200, {"results": []})
+            return FakeUrlResponse(200, {"count": 0})
+
+        client = PostHogClient("read-key", "write-key", 289846)
+        with patch("urllib.request.urlopen", side_effect=fake_urlopen):
+            client.list_requests()
+            client.preview("SELECT uuid FROM events")
+
+        self.assertEqual(authorizations, ["Bearer read-key", "Bearer write-key"])
+
     def test_dry_run_never_submits(self):
         transport = FakeTransport(previews=[0, 4])
-        result = run(PostHogClient("test", 289846, transport), "dry-run", NOW, 14)
+        result = run(PostHogClient("read", "write", 289846, transport), "dry-run", NOW, 14)
         self.assertEqual(result["result"], "preview")
         self.assertEqual(result["event_count"], 4)
         self.assertEqual([call[0] for call in transport.calls], ["GET", "POST", "POST"])
@@ -121,26 +154,30 @@ class RunTests(unittest.TestCase):
     def test_unknown_events_block_before_known_preview(self):
         transport = FakeTransport(previews=[2])
         with self.assertRaisesRegex(RetentionError, "Positivliste"):
-            run(PostHogClient("test", 289846, transport), "reconcile-submit", NOW, 14)
+            run(PostHogClient("read", "write", 289846, transport), "reconcile-submit", NOW, 14)
         self.assertEqual(len(transport.calls), 2)
 
     def test_zero_events_do_not_create_empty_request(self):
         transport = FakeTransport(previews=[0, 0])
-        result = run(PostHogClient("test", 289846, transport), "reconcile-submit", NOW, 14)
+        result = run(PostHogClient("read", "write", 289846, transport), "reconcile-submit", NOW, 14)
         self.assertEqual(result["result"], "preview")
         self.assertEqual(len(transport.calls), 3)
 
     def test_submit_uses_only_query_and_id(self):
         transport = FakeTransport(previews=[0, 3])
-        result = run(PostHogClient("test", 289846, transport), "reconcile-submit", NOW, 14)
+        result = run(PostHogClient("read", "write", 289846, transport), "reconcile-submit", NOW, 14)
         self.assertEqual(result["result"], "submitted")
         payload = transport.calls[-1][2]
         self.assertEqual(set(payload), {"query", "variables", "submission_id"})
         self.assertNotIn("test", json.dumps(payload))
 
-    def test_missing_key_is_rejected(self):
-        with self.assertRaisesRegex(RetentionError, "fehlt"):
-            PostHogClient("", 289846)
+    def test_missing_read_key_is_rejected(self):
+        with self.assertRaisesRegex(RetentionError, "READ.*fehlt"):
+            PostHogClient("", "write", 289846)
+
+    def test_missing_write_key_is_rejected(self):
+        with self.assertRaisesRegex(RetentionError, "WRITE.*fehlt"):
+            PostHogClient("read", "", 289846)
 
 
 if __name__ == "__main__":

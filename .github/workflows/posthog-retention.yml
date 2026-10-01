@@ -51,7 +51,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
-      POSTHOG_RETENTION_API_KEY: ${{ secrets.POSTHOG_RETENTION_API_KEY }}
+      POSTHOG_RETENTION_READ_API_KEY: ${{ secrets.POSTHOG_RETENTION_READ_API_KEY }}
+      POSTHOG_RETENTION_WRITE_API_KEY: ${{ secrets.POSTHOG_RETENTION_API_KEY }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v7

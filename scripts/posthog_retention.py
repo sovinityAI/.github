@@ -112,11 +112,20 @@ Transport = Callable[[str, str, dict[str, Any] | None], ApiResponse]
 
 
 class PostHogClient:
-    def __init__(self, api_key: str, project_id: int, transport: Transport | None = None) -> None:
-        if not api_key:
-            raise RetentionError("POSTHOG_RETENTION_API_KEY fehlt")
+    def __init__(
+        self,
+        read_api_key: str,
+        write_api_key: str,
+        project_id: int,
+        transport: Transport | None = None,
+    ) -> None:
+        if not read_api_key:
+            raise RetentionError("POSTHOG_RETENTION_READ_API_KEY fehlt")
+        if not write_api_key:
+            raise RetentionError("POSTHOG_RETENTION_WRITE_API_KEY fehlt")
         self.project_id = project_id
-        self._api_key = api_key
+        self._read_api_key = read_api_key
+        self._write_api_key = write_api_key
         self._transport = transport or self._request
 
     @property
@@ -125,12 +134,13 @@ class PostHogClient:
 
     def _request(self, method: str, path: str, payload: dict[str, Any] | None) -> ApiResponse:
         body = None if payload is None else json.dumps(payload, separators=(",", ":")).encode("utf-8")
+        api_key = self._read_api_key if method == "GET" else self._write_api_key
         request = urllib.request.Request(
             API_HOST + path,
             data=body,
             method=method,
             headers={
-                "Authorization": f"Bearer {self._api_key}",
+                "Authorization": f"Bearer {api_key}",
                 "Accept": "application/json",
                 "Content-Type": "application/json",
                 "User-Agent": "sovinity-posthog-retention/1",
@@ -264,7 +274,11 @@ def main() -> int:
         print(json.dumps({"result": "error", "message": "safety-days ausserhalb 0..31"}))
         return 2
     try:
-        client = PostHogClient(os.environ.get("POSTHOG_RETENTION_API_KEY", ""), args.project_id)
+        client = PostHogClient(
+            os.environ.get("POSTHOG_RETENTION_READ_API_KEY", ""),
+            os.environ.get("POSTHOG_RETENTION_WRITE_API_KEY", ""),
+            args.project_id,
+        )
         result = run(client, args.mode, datetime.now(timezone.utc), args.safety_days)
         print(json.dumps(result, sort_keys=True, separators=(",", ":")))
         return 0
