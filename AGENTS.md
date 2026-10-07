@@ -10,6 +10,7 @@
 
 - Beginne Änderungen nur auf Grundlage eines offenen verknüpften Issues mit prüfbaren Akzeptanzkriterien. Wenn der vollständige Kontext nicht öffentlich sein soll, darf das koordinierende Issue in `.github-private` liegen.
 - Lies Issue, Kommentare, Abhängigkeiten und Akzeptanzkriterien vollständig und halte die Änderung innerhalb des vereinbarten Scopes.
+- Prüfe bei Issue-Erstellung und fachlicher Überarbeitung sowie vor **Bereit** und vor der Übernahme ausdrücklich Motivation und Mehrwert: welches Problem oder welche Chance besteht, wer oder was profitiert und was sich verbessert. Das gilt auch für CLI/API und freie Browser-Issues. Ergänze fehlende Begründungen aus belegtem Kontext; kläre unklaren Nutzen vor der Übernahme im Issue. Zielzustand und Akzeptanzkriterien ersetzen diese Prüfung nicht. Details und Unter-Issue-Regel: [gemeinsamer Workflow](https://github.com/sovinityAI/.github-private/blob/main/WORKFLOW.md#inhaltliche-prüfung-von-motivation-und-mehrwert).
 - Verwende einen Branch nach dem Muster `<akteur>/<issue-nummer>-<kurzname>` und einen Pull Request auf Deutsch; unveränderliche technische Bezeichner dürfen englisch bleiben.
 - Dokumentiere ausgeführte Prüfungen und verbleibende Risiken. Schließe ein Issue erst nach nachgewiesener Erfüllung der Akzeptanzkriterien.
 - Veröffentliche niemals Zugangsdaten, personenbezogene Daten, private Testdaten, Kundendokumente, interne Betriebsdetails oder umgebungsspezifische Geheimnisse.
