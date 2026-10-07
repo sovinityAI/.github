@@ -1,5 +1,13 @@
 # Arbeitsregeln für das öffentliche Organisations-Repository
 
+## Ergebnisregel und vollständiger Abschluss
+
+Ein führendes Issue umfasst den vollständig erreichbaren Mehrwert einschließlich Analyse, Umsetzung, Integration, Tests, Review und erforderlicher Bereitstellung/Abnahme. Kleine Schritte werden als Checkliste geführt; Repositorygrenzen oder Arbeitsphasen erzeugen keine eigenen Erfolgstickets. Mehrere PRs in mehreren Repositories dürfen demselben Issue dienen.
+
+Ein Produkt-Issue ist erst fertig, wenn der Mehrwert nachgewiesen und der integrierte Stand potenziell auslieferbar ist: im normalen nächsten Build beziehungsweise Dev-Start vorhanden und im vereinbarten Modus nutzbar. Erforderliche native, Integrations-, Deployment- und Live-Nachweise gehören zum selben Issue. Ein einzelner Merge, eine abgeschaltete Funktion oder ausgelagerte Abnahmereste genügen nicht. Betriebs-, Prozess- und Entscheidungsaufträge benötigen entsprechend einen vollständig wirksamen, nutzbaren Abschluss.
+
+Notwendige Restschritte bleiben im Ergebnis-Issue; nur unabhängige zusätzliche Ergebnisse erhalten eigene Issues. Teil-PRs verwenden `Refs`; `Closes` erst, wenn der Merge sämtliche Abschlusskriterien erfüllt. Zusammenführungen erhalten alle offenen Kriterien und Nachweise; abgelöste Tickets werden als zusammengeführt (`not_planned`) geschlossen und im Project archiviert, nicht als erreichten Mehrwert gezählt. Aktive Zuständigkeiten und Übergaben bleiben erhalten. Maßgeblich ist die [gemeinsame Ergebnisregel](https://github.com/sovinityAI/.github-private/blob/main/WORKFLOW.md#ein-issue-ein-vollständig-erreichtes-ergebnis).
+
 ## Scope
 
 - Dieses Repository ist öffentlich. Es enthält ausschließlich das öffentliche Organisationsprofil, öffentliche Hinweise und die von GitHub organisationsweit verwendeten Issue- und Pull-Request-Vorlagen.

@@ -1,6 +1,8 @@
 ## Issue
 
-Closes <!-- #123 oder owner/repository#123 -->
+Refs <!-- Führendes Ergebnis-Issue: #123 oder owner/repository#123 -->
+
+<!-- Teil-PRs verwenden Refs. Closes nur verwenden, wenn der Merge selbst sämtliche Abschlusskriterien erfüllt. Bleiben Main-, native oder Live-Nachweise, bleibt das Issue bis zu deren Gesamtnachweis offen. -->
 
 ## Ergebnis
 
@@ -10,6 +12,7 @@ Closes <!-- #123 oder owner/repository#123 -->
 
 - [ ] Relevante automatisierte Tests oder Prüfungen sind erfolgreich
 - [ ] Akzeptanzkriterien wurden anhand konkreter Nachweise geprüft
+- [ ] Der Beitrag dieses PRs und verbleibende Schritte bis zum vollständig nutzbaren, integrierten und potenziell auslieferbaren Ergebnis sind im führenden Issue erfasst
 - [ ] Nutzerseitige oder Layout-Änderungen wurden, wo erforderlich, visuell geprüft
 - [ ] Es sind keine Zugangsdaten, privaten Daten oder umgebungsspezifischen Geheimnisse enthalten
 
@@ -35,9 +38,9 @@ Nachweise oder Begründung:
 
 <!-- Migrationen, Datenschutz-/Sicherheitsfolgen, Rückabwicklung und verbleibende Unsicherheit dokumentieren. -->
 
-## Folgearbeit
+## Verbleibende Schritte und unabhängige Folgearbeit
 
-<!-- Separate Issues für neu entdeckten Scope verknüpfen. „Keine“ schreiben, falls nichts folgt. -->
+<!-- Notwendige Integration, Tests, Abnahme und Bereitstellung bleiben Schritte des führenden Issues. Nur unabhängige zusätzliche Ergebnisse erhalten eigene Issues. „Keine“ schreiben, falls nichts folgt. -->
 
 ## Project-Übergabe
 
