@@ -1,5 +1,5 @@
 name: Produktaufgabe
-description: Eine konkrete, überprüfbare Einheit Sovinity-Arbeit planen
+description: Ein vollständig nutzbares und überprüfbares Ergebnis planen
 projects:
   - sovinityAI/1
 body:
@@ -15,7 +15,7 @@ body:
     id: outcome
     attributes:
       label: Zielzustand
-      description: Welcher konkrete Zustand muss erreicht sein, damit dieses Issue abgeschlossen werden kann?
+      description: Welcher nutzbare Mehrwert ist nach allen notwendigen Schritten erreicht? Umsetzung, Integration, Prüfung und erforderliche Bereitstellung gehören in dieses Issue.
       placeholder: Beschreibe, was nach dem Abschluss wahr ist, ohne bereits die einzelnen Akzeptanzkriterien aufzuzählen.
     validations:
       required: true
@@ -30,10 +30,11 @@ body:
     id: acceptance
     attributes:
       label: Akzeptanzkriterien
-      description: Verwende eine prüfbare Liste. Jeder Eintrag muss unabhängig verifizierbar sein.
+      description: Beschreibe den vollständigen Abschluss mit Funktionsnachweis, Integration und erforderlicher Abnahme. Technische Schritte gehören als Checkliste hierher, nicht in getrennte Erfolgstickets.
       placeholder: |
-        - [ ] Kriterium eins
-        - [ ] Kriterium zwei
+        - [ ] Der vereinbarte Mehrwert funktioniert im vorgesehenen Ablauf
+        - [ ] Alle benötigten Teile sind integriert und im normalen nächsten Build/Dev-Start nutzbar, soweit anwendbar
+        - [ ] Erforderliche Tests, Abnahmen und gegebenenfalls Bereitstellung sind nachgewiesen; der Stand ist potenziell auslieferbar
     validations:
       required: true
   - type: textarea
@@ -47,7 +48,7 @@ body:
     id: validation
     attributes:
       label: Verifikation
-      description: Welche Tests, Prüfungen oder Artefakte weisen den Abschluss nach?
+      description: Welche ausgeführten Tests und Abnahmen belegen den erreichten Mehrwert? Benenne relevante Plattformen und gegebenenfalls Live-Pfade; reine Implementierung oder ein Teil-PR-Merge genügt nicht.
     validations:
       required: true
   - type: dropdown

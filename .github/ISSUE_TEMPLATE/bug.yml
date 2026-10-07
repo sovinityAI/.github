@@ -40,9 +40,12 @@ body:
     id: acceptance
     attributes:
       label: Akzeptanzkriterien
+      description: Behebung, Integration und Prüfung bilden ein Ergebnis. Notwendige Restschritte bleiben in diesem Issue.
       placeholder: |
+        - [ ] Der Fehler ist im vorgesehenen Ablauf behoben und der Mehrwert nachgewiesen
         - [ ] Der Fehler ist durch einen Regressionstest abgedeckt
         - [ ] Die relevante Testsuite ist erfolgreich
+        - [ ] Die Korrektur ist integriert, im normalen nächsten Build/Dev-Start nutzbar und nach erforderlicher Abnahme potenziell auslieferbar
     validations:
       required: true
   - type: textarea

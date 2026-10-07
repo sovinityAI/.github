@@ -1,5 +1,11 @@
 # Arbeitsregeln für das öffentliche Organisations-Repository
 
+## Gemeinsame Ergebnisregel
+
+Ein führendes Issue bleibt bis zum nachgewiesenen, nutzbaren Mehrwert einschließlich Integration und erforderlicher Prüfung/Abnahme offen; notwendige Teilaufgaben gehören als Checkliste hinein.
+
+Prüfe Motivation und Mehrwert bei Erstellung und Überarbeitung sowie vor **Bereit** und Übernahme. Verbindliche Details: [gemeinsamer Workflow](https://github.com/sovinityAI/.github-private/blob/main/WORKFLOW.md#ein-issue-ein-vollständig-erreichtes-ergebnis).
+
 ## Scope
 
 - Dieses Repository ist öffentlich. Es enthält ausschließlich das öffentliche Organisationsprofil, öffentliche Hinweise und die von GitHub organisationsweit verwendeten Issue- und Pull-Request-Vorlagen.
