@@ -1,11 +1,7 @@
-# Öffentliches Sovinity-Organisationsprofil
+# Sovinity
 
-Dieses öffentliche Repository enthält das unter <https://github.com/sovinityAI> angezeigte Organisationsprofil sowie die gemeinsamen GitHub-Issue- und Pull-Request-Vorlagen.
+Private KI für Fragen und nachvollziehbare Antworten aus lokalen Dokumenten.
 
-- [Öffentliches Organisationsprofil](profile/README.md)
-- [Beitragsleitfaden](CONTRIBUTING.md)
-- [Öffentliche Repository-Regeln](AGENTS.md)
+**Sovinity Docs** richtet sich an die persönliche Nutzung, beginnend mit Haushaltsdokumenten. Die Anwendung verbindet lokale Verarbeitung mit überprüfbaren Quellenstellen.
 
-Interne Arbeitsabläufe, Produktsteuerung und Kennzahlen werden im privaten Organisationsbereich gepflegt. Dieses Repository enthält keine internen Dashboards, personenbezogenen Daten, Zugangsdaten oder umgebungsspezifischen Betriebsdetails.
-
-Das öffentliche Profil macht keine unbelegten Aussagen zu Verfügbarkeit, Compliance, Lizenzierung oder Open Source.
+[Mehr über Sovinity](profile/README.md)
